@@ -11,28 +11,29 @@
 
 <body>
     <div class="wrapper">
-        <form>
+        <div>
+            <label for="number">Number</label>
+            <input type="text" name='number' id="number">
             <div>
-                <label for="number">Number</label>
-                <input type="text" name='number' id="number">
-                <div>
-                    <label for="currencyFrom">From</label>
-                    <select name="currencyFrom" id="currencyFrom">
-                    </select>
-                    <img src="" alt="" id='imgFrom'>
-                    <label for="currencyTo">To</label>
-                    <select name="currencyTo" id="currencyTo">
-                    </select>
-                    <img src="" alt="" id='imgTo'>
-                </div>
-                <div>
-                    <label for="benefits">Benefits</label>
-                    <input type="checkbox" name="benefits" value="" id='benefits'>
-                    <label for="draft">Draft</label>
-                    <input type="checkbox" name="draft" value="" id='draft'>
-                </div>
-                <button>Convert</button>
-        </form>
+                <label for="currencyFrom">From</label>
+                <select name="currencyFrom" id="currencyFrom">
+                </select>
+                <img src="" alt="" id='imgFrom'>
+                <label for="currencyTo">To</label>
+                <select name="currencyTo" id="currencyTo">
+                </select>
+                <img src="" alt="" id='imgTo'>
+            </div>
+            <div>
+                <label for="benefits">Benefits</label>
+                <input type="checkbox" name="benefits" value="" id='benefits'>
+                <label for="draft">Draft</label>
+                <input type="checkbox" name="draft" value="" id='draft'>
+            </div>
+            <button>Convert</button>
+            <div id="result">
+            	
+            </div>
         </div>
         <script type="text/javascript" src="script.js"></script>
 </body>

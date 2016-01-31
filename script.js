@@ -46,7 +46,10 @@ var currency = {
 var selectFrom = document.getElementById('currencyFrom'),
     selectTo = document.getElementById('currencyTo'),
     imageNearFrom = document.getElementById('imgFrom'),
-    imageNearTo = document.getElementById('imgTo');
+    imageNearTo = document.getElementById('imgTo'),
+    conBut = document.getElementsByTagName('button')[0],
+    result = document.getElementById('result');
+    
 // вызов функций
 makeSelect(selectFrom);
 makeSelect(selectTo);
@@ -58,6 +61,17 @@ selectFrom.addEventListener('change', function() {
 });
 selectTo.addEventListener('change', function() {
     findAndChange(selectTo, imageNearTo);
+});
+conBut.addEventListener('click', function() {
+	var benefits = document.getElementById('benefits'),
+	    draft = document.getElementById('draft'),
+	    number = document.getElementById('number').value,
+	    from = selectFrom.options[selectFrom.selectedIndex].value,
+	    to = selectTo.options[selectTo.selectedIndex].value,
+	    res = 0;
+	res = number / from * to;
+	res = res.toFixed(1);
+	result.innerHTML = '<p>Result: ' + res + '</p>';
 });
 // функкии
 function makeSelect(elem) {
