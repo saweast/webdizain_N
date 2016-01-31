@@ -1,49 +1,40 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Converter</title>
-	<link rel="stylesheet" type="text/css" href="normalize.css">
-	<link rel="stylesheet" href="style.css">
-	<script type="text/javascript" src="script.js"></script>
-</head>
-<body>
-	
-	<div>
-		<form>
-			<label for="number">Number</label>
-			<input type="text" name='number' id="number">
-			<label for="currencyFrom">From</label>
-			<select name="currencyFrom" id="currencyFrom">
-				<option value="USD">Dollar</option>
-				<option value="EUR">Euro</option>
-				<option value="RUB">Rubles</option>
-			</select>
-			<div>
-				<img src="123" alt="">
-				<input type="text" name="currencyChange">
-				<button>Add</button>
-			</div>
-			<label for="currencyTo">To</label>
-			<select name="currencyTo" id="currencyTo">
-				<option value="USD">Dollar</option>
-				<option value="EUR">Euro</option>
-				<option value="RUB">Rubles</option>
-			</select>
-			<div>
-				<img src="123" alt="">
-				<input type="text" name="currencyChange">
-				<button>Add</button>
-			</div>
-			<label for="benefits">Benefits</label>
-			<input type="checkbox" name="benefits" value="" id='benefits'>
-			<label for="draft">Draft</label>
-			<input type="checkbox" name="draft" value="" id='draft'>
-			<button>Convert</button>
-		</form>
-		
-	</div>
 
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Converter</title>
+    <link rel="stylesheet" type="text/css" href="normalize.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <form>
+            <div>
+                <label for="number">Number</label>
+                <input type="text" name='number' id="number">
+                <div>
+                    <label for="currencyFrom">From</label>
+                    <select name="currencyFrom" id="currencyFrom">
+                    </select>
+                    <img src="" alt="" id='imgFrom'>
+                    <label for="currencyTo">To</label>
+                    <select name="currencyTo" id="currencyTo">
+                    </select>
+                    <img src="" alt="" id='imgTo'>
+                </div>
+                <div>
+                    <label for="benefits">Benefits</label>
+                    <input type="checkbox" name="benefits" value="" id='benefits'>
+                    <label for="draft">Draft</label>
+                    <input type="checkbox" name="draft" value="" id='draft'>
+                </div>
+                <button>Convert</button>
+        </form>
+        </div>
+        <script type="text/javascript" src="script.js"></script>
 </body>
+
 </html>
