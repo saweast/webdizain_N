@@ -3,42 +3,42 @@
 var currency = {
     USD: {
         img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/1235px-Flag_of_the_United_States.svg.png',
-        attirudeToUSD: '1',
+        attitudeToUSD: '1',
         name: 'USD'
     },
     EUR: {
         img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/810px-Flag_of_Europe.svg.png',
-        attirudeToUSD: '0.92310',
+        attitudeToUSD: '0.92310',
         name: 'EUR'
     },
     GBP: {
         img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/1200px-Flag_of_the_United_Kingdom.svg.png',
-        attirudeToUSD: '0.70183',
+        attitudeToUSD: '0.70183',
         name: 'GBP'
     },
     CAD: {
         img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Flag_of_Canada.svg/1000px-Flag_of_Canada.svg.png',
-        attirudeToUSD: '1.39705',
+        attitudeToUSD: '1.39705',
         name: 'CAD'
     },
     CNY: {
         img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Flag_of_Eritrea.svg/1000px-Flag_of_Eritrea.svg.png',
-        attirudeToUSD: '6.57428',
+        attitudeToUSD: '6.57428',
         name: 'CNY'
     },
     RUB: {
         img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Russia.svg/900px-Flag_of_Russia.svg.png',
-        attirudeToUSD: '75.4620',
+        attitudeToUSD: '75.4620',
         name: 'RUB'
     },
     UAH: {
         img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Flag_of_Ukraine.svg/1024px-Flag_of_Ukraine.svg.png',
-        attirudeToUSD: '25.5200',
+        attitudeToUSD: '25.5200',
         name: 'UAH'
     },
     MXN: {
         img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Flag_of_Mexico.svg/840px-Flag_of_Mexico.svg.png',
-        attirudeToUSD: '18.1045',
+        attitudeToUSD: '18.1045',
         name: 'MXN'
     }
 }
@@ -59,7 +59,8 @@ var selectFrom = document.getElementById('currencyFrom'),
     result = document.getElementById('result'),
     number = document.getElementById('number'),
     convertor = document.getElementById('convertor'),
-    benefits = document.getElementById('benefits');
+    benefits = document.getElementById('benefits'),
+    newCurr = document.getElementById('newCurr');
 
 // вызов функций
 makeSelect(selectFrom); // делаю селект
@@ -120,12 +121,35 @@ swap.addEventListener('click', function() { // обработчик на кно�
     res = (numberV * to / from).toFixed(5);
     result.innerHTML = '<p>Result: ' + res + '</p>';
 })
-// функкии
+newCurr.addEventListener('click', function() { // добавляю в мой обьект валют еще одну валюту
+	var newName = document.getElementById('newName').value;
+	var newSrc = document.getElementById('newSrc').value;
+	var newAttitide = document.getElementById('newAttitide').value;
+	currency[newName] = {
+		img: newSrc,
+		attitudeToUSD: newAttitide,
+		name: newName
+	};
+	// обновляю селекты
+	var option = document.createElement('option');
+	var option1 = document.createElement('option');
+	option.text = currency[newName].name;
+	option1.text = currency[newName].name;
+	option.value = currency[newName].attitudeToUSD;
+	option1.value = currency[newName].attitudeToUSD;
+	selectFrom.add(option);
+	selectTo.add(option1);
+	// чищю инпуты
+	document.getElementById('newName').value = "";
+	document.getElementById('newSrc').value = "";
+	document.getElementById('newAttitide').value = "";
+})
+// функции
 function makeSelect(elem) { // заполняет селект
     for (var item in currency) {
         var option = document.createElement("option");
         option.text = currency[item].name;
-        option.value = currency[item].attirudeToUSD;
+        option.value = currency[item].attitudeToUSD;
         elem.add(option);
     }
 }
@@ -133,7 +157,7 @@ function makeSelect(elem) { // заполняет селект
 function findAndChange(se, im) { // картинки делает
     var choosen = se.options[se.selectedIndex].value;
     for (var item in currency) {
-        if (choosen == currency[item].attirudeToUSD) {
+        if (choosen == currency[item].attitudeToUSD) {
             im.src = currency[item].img;
             im.alt = currency[item].name;
             break;
