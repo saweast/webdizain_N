@@ -29,3 +29,19 @@ div {
 .adder label {
 	display: block;
 }
+.adder {
+	width: 200px;
+    padding: 25px;
+    border: 1px solid red;
+    border-radius: 25px;
+    float: right;
+    position: absolute;
+    top: 15px;
+    right: 170px;
+}
+#convertor {
+	height: 180px;
+	padding: 25px;
+	border: 1px solid red;
+	border-radius: 25px;
+}
