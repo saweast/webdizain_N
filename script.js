@@ -94,13 +94,25 @@ convertor.addEventListener('input', function() { // делегирую нажа�
         numberV = document.getElementById('number').value;
         from = selectFrom.options[selectFrom.selectedIndex].value;
         to = selectTo.options[selectTo.selectedIndex].value;
-        if (benefits.checked == '1' && numberV > 100) { // начисление скидки в размере 5% если бенефит выбран и сумма превышает $100
+        if (benefits.checked && numberV > 100) { // начисление скидки в размере 5% если бенефит выбран и сумма превышает $100
             res = ((+numberV + (+numberV * 0.05)) * +to / +from).toFixed(5);
         } else {
-            res = (numberV * to / from).toFixed(5);
+            res = (+numberV * +to / +from).toFixed(5);
         }
         result.innerHTML = '<p>Result: ' + res + ' ' + selectTo.options[selectTo.selectedIndex].text + '</p>';
     }
+});
+benefits.addEventListener('click', function() { // обработчик на чекбокс бенефитс
+    var res = 0;
+    var numberV = document.getElementById('number').value;
+    var from = selectFrom.options[selectFrom.selectedIndex].value;
+    var to = selectTo.options[selectTo.selectedIndex].value;
+    if (benefits.checked && numberV > 100) { // начисление скидки в размере 5% если бенефит выбран и сумма превышает $100
+        res = ((+numberV + (+numberV * 0.05)) * +to / +from).toFixed(5);
+    } else {
+        res = (+numberV * +to / +from).toFixed(5);
+    }
+    result.innerHTML = '<p>Result: ' + res + ' ' + selectTo.options[selectTo.selectedIndex].text + '</p>';
 })
 swap.addEventListener('click', function() { // обработчик на кнопку "свап" 
     var buffer = '';
