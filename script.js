@@ -70,7 +70,7 @@ findAndChange(selectTo, imageNearTo); // это для начального от
 // обработчики
 selectFrom.addEventListener('change', function() { // обработчик на смену селекта
     findAndChange(selectFrom, imageNearFrom);
-    var change = selectFrom.selectedIndex;
+    var change = selectFrom.selectedIndex; // делаю disabled и убираю его из всех остальных
     var i = 0;
     for (var option in selectTo.options) {
         var opt = selectTo.options[option];
