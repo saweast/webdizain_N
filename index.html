@@ -12,6 +12,7 @@
 <body>
     <div class="wrapper">
         <div id='convertor'>
+            <h1>Currency convertor</h1>
             <label for="number">Number</label>
             <input type="text" name='number' id="number" maxlength="4" placeholder="0">
             <div>
@@ -33,15 +34,20 @@
                 <label for="draft">Draft</label>
                 <input type="checkbox" name="draft" value="" id='draft'>
             </div>
-            
             <div id="result">
-            	<p></p>
+                <p></p>
             </div>
             <div class='adder'>
-            	<label>Short name: <input type="text" id="newName"></label>
-            	<label>Image src: <input type="file" id="newSrc"></label>
-            	<label>Attirude to USD: <input type="number" id="newAttitide"></label>
-            	<button id='newCurr'>Add new currency</button>
+                <label>Short name:
+                    <input type="text" id="newName">
+                </label>
+                <label>Image src:
+                    <input type="file" id="newSrc">
+                </label>
+                <label>Attirude to USD:
+                    <input type="number" id="newAttitide">
+                </label>
+                <button id='newCurr'>Add new currency</button>
             </div>
         </div>
         <script type="text/javascript" src="script.js"></script>

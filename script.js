@@ -53,8 +53,8 @@ var curLength = (function() {
 // переменные
 var selectFrom = document.getElementById('currencyFrom'),
     selectTo = document.getElementById('currencyTo'),
-    imageNearFrom = document.getElementById('imgFrom'),
-    imageNearTo = document.getElementById('imgTo'),
+    imageNearFrom = document.getElementById('imgFrom'), // document.images[0]
+    imageNearTo = document.getElementById('imgTo'), // document.images[1]
     swap = document.getElementsByTagName('button')[0],
     result = document.getElementById('result'),
     number = document.getElementById('number'),
@@ -70,45 +70,36 @@ findAndChange(selectTo, imageNearTo); // это для начального от
 // обработчики
 selectFrom.addEventListener('change', function() { // обработчик на смену селекта
     findAndChange(selectFrom, imageNearFrom);
-    var change = selectFrom.selectedIndex; // делаю disabled и убираю его из всех остальных
-    var i = 0;
-    for (var option in selectTo.options) {
-        var opt = selectTo.options[option];
-        if (selectTo.options[option].hasAttribute('disabled')) {
-            selectTo.options[option].removeAttribute('disabled')
-        }
-        i++;
-        if (i == selectTo.options.length) {
-            break;
-        }        
-    }
-    selectTo.options[change].setAttribute('disabled', 'true');   
+    makeDisable(selectFrom, selectTo);
 });
 selectTo.addEventListener('change', function() { // обработчик на смену селекта
     findAndChange(selectTo, imageNearTo);
+    makeDisable(selectTo, selectFrom);
 });
 convertor.addEventListener('input', function() { // делегирую нажатия на инпут[текст] и селекты
-	number.value = number.value.replace(/[^\d]/g, ''); // запрет ввода всего кроме чисел
-	if (number.value.length == 4 && number.value[0] >= '1') { // ввод только до 1000
-		number.value = '1000';
-	}
+    number.value = number.value.replace(/[^\d]/g, ''); // запрет ввода всего кроме чисел
+    if (number.value.length == 4 && number.value[0] >= '1') { // ввод только до 1000
+        number.value = '1000';
+    }
     var target = event.target,
         draft = 0,
         numberV = 0,
         from = 0,
         to = 0,
         res = 0;
-    if (target == number || selectFrom || selectTo) {
+    if (target == number || target == selectFrom || target == selectTo) {
+        if (number.length == 0 || selectFrom.selectedIndex == 0 || selectTo.selectedIndex == 0) { // когда не выбраны селекты и не введен инпут
+            return 0;
+        }
         numberV = document.getElementById('number').value;
         from = selectFrom.options[selectFrom.selectedIndex].value;
         to = selectTo.options[selectTo.selectedIndex].value;
         if (benefits.checked == '1' && numberV > 100) { // начисление скидки в размере 5% если бенефит выбран и сумма превышает $100
-			res = ((+numberV + (+numberV * 0.05)) * +to / +from).toFixed(5); 
-		}	
-        else {
-        	res = (numberV * to / from).toFixed(5);
+            res = ((+numberV + (+numberV * 0.05)) * +to / +from).toFixed(5);
+        } else {
+            res = (numberV * to / from).toFixed(5);
         }
-        result.innerHTML = '<p>Result: ' + res + '</p>';
+        result.innerHTML = '<p>Result: ' + res + ' ' + selectTo.options[selectTo.selectedIndex].text + '</p>';
     }
 })
 swap.addEventListener('click', function() { // обработчик на кнопку "свап" 
@@ -132,32 +123,36 @@ swap.addEventListener('click', function() { // обработчик на кно�
     from = selectFrom.options[selectFrom.selectedIndex].value;
     to = selectTo.options[selectTo.selectedIndex].value;
     res = (numberV * to / from).toFixed(5);
-    result.innerHTML = '<p>Result: ' + res + '</p>';
+    result.innerHTML = '<p>Result: ' + res + ' ' + selectTo.options[selectTo.selectedIndex].text + '</p>';
+    // обновляем disable
+    makeDisable(selectFrom, selectTo);
+    makeDisable(selectTo, selectFrom);
+
 })
 newCurr.addEventListener('click', function() { // добавляю в мой обьект валют еще одну валюту
-	var newName = document.getElementById('newName').value;
-	var newSrc = document.getElementById('newSrc').value;
-	var newAttitide = document.getElementById('newAttitide').value;
-	currency[newName] = {
-		img: newSrc,
-		attitudeToUSD: newAttitide,
-		name: newName
-	};
-	// обновляю селекты
-	var option = document.createElement('option');
-	var option1 = document.createElement('option');
-	option.text = currency[newName].name;
-	option1.text = currency[newName].name;
-	option.value = currency[newName].attitudeToUSD;
-	option1.value = currency[newName].attitudeToUSD;
-	selectFrom.add(option);
-	selectTo.add(option1);
-	// чищю инпуты
-	document.getElementById('newName').value = "";
-	document.getElementById('newSrc').value = "";
-	document.getElementById('newAttitide').value = "";
-})
-// функции
+        var newName = document.getElementById('newName').value;
+        var newSrc = document.getElementById('newSrc').value;
+        var newAttitide = document.getElementById('newAttitide').value;
+        currency[newName] = {
+            img: newSrc,
+            attitudeToUSD: newAttitide,
+            name: newName
+        };
+        // обновляю селекты
+        var option = document.createElement('option');
+        var option1 = document.createElement('option');
+        option.text = currency[newName].name;
+        option1.text = currency[newName].name;
+        option.value = currency[newName].attitudeToUSD;
+        option1.value = currency[newName].attitudeToUSD;
+        selectFrom.add(option);
+        selectTo.add(option1);
+        // чищю инпуты
+        document.getElementById('newName').value = "";
+        document.getElementById('newSrc').value = "";
+        document.getElementById('newAttitide').value = "";
+    })
+    // функции
 function makeSelect(elem) { // заполняет селект
     for (var item in currency) {
         var option = document.createElement("option");
@@ -178,3 +173,18 @@ function findAndChange(se, im) { // картинки делает
     }
 }
 
+function makeDisable(s1, s2) { // делаю disabled и убираю его из всех остальных
+    var change = s1.selectedIndex;
+    var i = 0;
+    for (var option in s2.options) {
+        var opt = s2.options[option];
+        if (s2.options[option].hasAttribute('disabled')) {
+            s2.options[option].removeAttribute('disabled')
+        }
+        i++;
+        if (i == s2.options.length) {
+            break;
+        }
+    }
+    s2.options[change].setAttribute('disabled', 'true');
+}
