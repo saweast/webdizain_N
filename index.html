@@ -13,15 +13,17 @@
     <div class="wrapper">
         <div id='convertor'>
             <label for="number">Number</label>
-            <input type="text" name='number' id="number" maxlength="4">
+            <input type="text" name='number' id="number" maxlength="4" placeholder="0">
             <div>
                 <label for="currencyFrom">From</label>
                 <select name="currencyFrom" id="currencyFrom">
+                    <option disabled selected> -- select an option -- </option>
                 </select>
                 <img src="" alt="" id='imgFrom'>
                 <button id="swap"></button>
                 <label for="currencyTo">To</label>
                 <select name="currencyTo" id="currencyTo">
+                    <option disabled selected> -- select an option -- </option>
                 </select>
                 <img src="" alt="" id='imgTo'>
             </div>

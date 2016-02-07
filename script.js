@@ -70,6 +70,19 @@ findAndChange(selectTo, imageNearTo); // это для начального от
 // обработчики
 selectFrom.addEventListener('change', function() { // обработчик на смену селекта
     findAndChange(selectFrom, imageNearFrom);
+    var change = selectFrom.selectedIndex;
+    var i = 0;
+    for (var option in selectTo.options) {
+        var opt = selectTo.options[option];
+        if (selectTo.options[option].hasAttribute('disabled')) {
+            selectTo.options[option].removeAttribute('disabled')
+        }
+        i++;
+        if (i == selectTo.options.length) {
+            break;
+        }        
+    }
+    selectTo.options[change].setAttribute('disabled', 'true');   
 });
 selectTo.addEventListener('change', function() { // обработчик на смену селекта
     findAndChange(selectTo, imageNearTo);
@@ -164,3 +177,4 @@ function findAndChange(se, im) { // картинки делает
         }
     }
 }
+
