@@ -60,7 +60,9 @@ var selectFrom = document.getElementById('currencyFrom'),
     number = document.getElementById('number'),
     convertor = document.getElementById('convertor'),
     benefits = document.getElementById('benefits'),
-    newCurr = document.getElementById('newCurr');
+    newCurr = document.getElementById('newCurr'),
+    pid = document.getElementById("pid"),
+    ann = document.getElementById("ann");
 
 // вызов функций
 makeSelect(selectFrom); // делаю селект
@@ -199,4 +201,63 @@ function makeDisable(s1, s2) { // делаю disabled и убираю его и�
         }
     }
     s2.options[change].setAttribute('disabled', 'true');
+}
+
+
+function getBrowserInfo() {
+    var myWindow = window.open("", "", "width=500, height=100");
+    myWindow.document.write("<p>" +navigator.userAgent + " " + navigator.platform + "</p>");
+    setTimeout(function(){myWindow.close()} ,5000);
+}
+
+function getDraft() {
+    var res = 0;
+    var numberV = document.getElementById('number').value;
+    var from = selectFrom.options[selectFrom.selectedIndex].value;
+    var to = selectTo.options[selectTo.selectedIndex].value;
+    if (benefits.checked && numberV > 100) { // начисление скидки в размере 5% если бенефит выбран и сумма превышает $100
+        res = ((+numberV + (+numberV * 0.05)) * +to / +from).toFixed(5);
+    } else {
+        res = (+numberV * +to / +from).toFixed(5);
+    }
+
+    var myWindow = window.open("", "", "width=500, height=100");
+    myWindow.document.write('<p>From ' + numberV + " " +selectFrom.options[selectFrom.selectedIndex].text + " you get: " + res + ' ' + selectTo.options[selectTo.selectedIndex].text + '</p>');
+    var time = new Date();
+    time = time.toUTCString();
+    myWindow.document.write("<p>Now: " + time + "</p><p></p>");
+    
+    make();
+
+    function make() {
+        var i = 5;
+        var int = setInterval(function() {
+            myWindow.document.write(i-- + " ");
+        }, 1000)
+        setTimeout(function() {
+            myWindow.close();
+            clearInterval(int);
+        }, 6000)
+    }
+}
+
+window.onload = function() {
+    var myWindow = window.open("", "", "width=500, height=200");    
+    var timer1 = setTimeout(function(){        
+        var block = document.createElement('img');
+        var time = document.createElement('p');
+        var t = new Date();
+        t = t.toUTCString();
+        time.innerHTML = t;
+        block.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/1235px-Flag_of_the_United_States.svg.png';
+        block.height = 150;
+        block.width = 300;
+        myWindow.document.body.appendChild(time);
+        myWindow.document.body.appendChild(block);
+    }, 10000);
+    // clearTimeout(timer1);
+    var timer2 = setTimeout(function(){
+        myWindow.blur();
+    }, 20000)
+    // clearTimeout(timer2);
 }
