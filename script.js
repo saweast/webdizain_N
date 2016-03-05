@@ -62,7 +62,8 @@ var selectFrom = document.getElementById('currencyFrom'),
     benefits = document.getElementById('benefits'),
     newCurr = document.getElementById('newCurr'),
     pid = document.getElementById("pid"),
-    ann = document.getElementById("ann");
+    ann = document.getElementById("ann"),
+    third = document.getElementById('third');
 
 // вызов функций
 makeSelect(selectFrom); // делаю селект
@@ -241,23 +242,60 @@ function getDraft() {
     }
 }
 
-window.onload = function() {
-    var myWindow = window.open("", "", "width=500, height=200");    
-    var timer1 = setTimeout(function(){        
-        var block = document.createElement('img');
-        var time = document.createElement('p');
-        var t = new Date();
-        t = t.toUTCString();
-        time.innerHTML = t;
-        block.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/1235px-Flag_of_the_United_States.svg.png';
-        block.height = 150;
-        block.width = 300;
-        myWindow.document.body.appendChild(time);
-        myWindow.document.body.appendChild(block);
-    }, 10000);
-    // clearTimeout(timer1);
-    var timer2 = setTimeout(function(){
-        myWindow.blur();
-    }, 20000)
-    // clearTimeout(timer2);
-}
+// window.onload = function() {
+//     var myWindow = "";    
+//     var timer1 = setTimeout(function(){        
+//         myWindow = window.open("", "", "width=500, height=200");  
+//         var block = document.createElement('img');
+//         var time = document.createElement('p');
+//         var t = new Date();
+//         t = t.toUTCString();
+//         time.innerHTML = t;
+//         block.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/1235px-Flag_of_the_United_States.svg.png';
+//         block.height = 150;
+//         block.width = 300;
+//         myWindow.document.body.appendChild(time);
+//         myWindow.document.body.appendChild(block);
+//     }, 10000);
+//     var timer2 = setTimeout(function(){
+//         myWindow.blur();
+//     }, 20000)
+// }
+
+third.addEventListener("click", function(e) {
+    var history = document.getElementById("history");
+    var res = 0;
+    var numberV = document.getElementById('number').value;
+    var from = selectFrom.options[selectFrom.selectedIndex].value;
+    var to = selectTo.options[selectTo.selectedIndex].value;
+    if (benefits.checked && numberV > 100) { // начисление скидки в размере 5% если бенефит выбран и сумма превышает $100
+        res = ((+numberV + (+numberV * 0.05)) * +to / +from).toFixed(5);
+    } else {
+        res = (+numberV * +to / +from).toFixed(5);
+    }
+
+    var newElement = document.createElement('p');
+    // var newTextNode = document.createTextNode(res + " " + selectTo.options[selectTo.selectedIndex].text);
+    // history.appendChild(newTextNode);
+    newElement.innerHTML = res + " " + selectTo.options[selectTo.selectedIndex].text;
+    history.appendChild(newElement);
+});
+
+var thirdStyle = document.getElementById('thirdStyle');
+
+thirdStyle.addEventListener('click', function() {
+    var history = document.getElementById("history");
+    var p = history.getElementsByTagName('p');
+    for (var item in p) {
+            p[item].style.background = "red";
+            p[item].style.color = "blue";
+    }
+});
+var thirdFirst = document.getElementById('thirdFirst');
+thirdFirst.addEventListener("click", function() {
+    
+})
+var thirdSecond = document.getElementById('thirdSecond');
+thirdSecond.addEventListener("click", function() {
+
+})
