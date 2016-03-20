@@ -207,8 +207,8 @@ function makeDisable(s1, s2) { // делаю disabled и убираю его и�
 
 function getBrowserInfo() {
     var myWindow = window.open("", "", "width=500, height=100");
-    myWindow.document.write("<p>" +navigator.userAgent + " " + navigator.platform + "</p>");
-    setTimeout(function(){myWindow.close()} ,5000);
+    myWindow.document.write("<p>" + navigator.userAgent + " " + navigator.platform + "</p>");
+    setTimeout(function() { myWindow.close() }, 5000);
 }
 
 function getDraft() {
@@ -223,11 +223,11 @@ function getDraft() {
     }
 
     var myWindow = window.open("", "", "width=500, height=100");
-    myWindow.document.write('<p>From ' + numberV + " " +selectFrom.options[selectFrom.selectedIndex].text + " you get: " + res + ' ' + selectTo.options[selectTo.selectedIndex].text + '</p>');
+    myWindow.document.write('<p>From ' + numberV + " " + selectFrom.options[selectFrom.selectedIndex].text + " you get: " + res + ' ' + selectTo.options[selectTo.selectedIndex].text + '</p>');
     var time = new Date();
     time = time.toUTCString();
     myWindow.document.write("<p>Now: " + time + "</p><p></p>");
-    
+
     make();
 
     function make() {
@@ -287,8 +287,8 @@ thirdStyle.addEventListener('click', function() {
     var history = document.getElementById("history");
     var p = history.getElementsByTagName('p');
     for (var item in p) {
-            p[item].style.background = "red";
-            p[item].style.color = "blue";
+        p[item].style.background = "red";
+        p[item].style.color = "blue";
     }
 });
 var thirdFirst = document.getElementById('thirdFirst');
@@ -300,13 +300,16 @@ thirdFirst.addEventListener("click", function() {
 })
 var thirdSecond = document.getElementById('thirdSecond');
 thirdSecond.addEventListener("click", function() {
-    USDtoUL("history");
+    findThree("history");
+    // USDtoUL("history");
+
 });
 var thirdThird = document.getElementById('thirdThird');
 thirdThird.addEventListener("click", function() {
     sort("history");
     colorize("history");
 })
+
 function getSparta() {
     var history = document.getElementById("history")
     var histElems = document.getElementById("history").children;
@@ -316,6 +319,7 @@ function getSparta() {
         }
     }
 }
+
 function removeNonSparta() {
     var history = document.getElementById("history")
     var histElems = document.getElementById("history").children;
@@ -325,7 +329,8 @@ function removeNonSparta() {
         }
     }
 }
-function sort(blockId, desc ) {
+
+function sort(blockId, desc) {
     var desc = desc || false;
     var mainBlock = document.getElementById(blockId);
     var childBlock = mainBlock.children;
@@ -333,7 +338,7 @@ function sort(blockId, desc ) {
     var length = childBlock.length;
     for (var i = length - 1; i > 0; i--) {
         for (var j = 0; j < i; j++) {
-            if ( parseFloat(childBlock[j].innerHTML) > parseFloat(childBlock[j + 1].innerHTML) ) {
+            if (parseFloat(childBlock[j].innerHTML) > parseFloat(childBlock[j + 1].innerHTML)) {
                 buf = childBlock[j].innerHTML;
                 childBlock[j].innerHTML = childBlock[j + 1].innerHTML;
                 childBlock[j + 1].innerHTML = buf;
@@ -341,6 +346,7 @@ function sort(blockId, desc ) {
         }
     }
 }
+
 function colorize(block) {
     var mainBlock = document.getElementById(block);
     var childBlock = mainBlock.children;
@@ -351,6 +357,7 @@ function colorize(block) {
         childBlock[item].style.color = "#fff";
     }
 }
+
 function USDtoUL(block) {
     var mainBlock = document.getElementById(block);
     var childBlock = mainBlock.children;
@@ -361,14 +368,30 @@ function USDtoUL(block) {
             var newLi = document.createElement("li");
             newLi.innerHTML = childBlock[item].innerHTML;
             ulBlock.appendChild(newLi);
+        } else {
+            continue;
         }
     }
     var newLi = document.createElement('li');
 }
+
 function findThree(block) {
     var mainBlock = document.getElementById(block);
     var childBlock = mainBlock.children;
     var length = childBlock.length;
     var ulBlock = document.getElementById("USD");
-    
+    var count = 0;
+    for (var i = 0; i < length; i++) {
+        for (var j = 1; j < length; j++) {
+            if (childBlock[i].innerHTML == childBlock[j].innerHTML) {
+                count++;
+            }
+
+        }
+        if (count >= 3) {
+            for (var item in childBlock) {
+                childBlock[item].style.color = "#c4c4c4";
+            }
+        }
+    }
 }
