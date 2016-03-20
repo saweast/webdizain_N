@@ -301,13 +301,12 @@ thirdFirst.addEventListener("click", function() {
 var thirdSecond = document.getElementById('thirdSecond');
 thirdSecond.addEventListener("click", function() {
 
-})
+});
 var thirdThird = document.getElementById('thirdThird');
-thirdSecond.addEventListener("click", function() {
-
+thirdThird.addEventListener("click", function() {
+    sort("history");
+    colorize("history");
 })
-
-
 function getSparta() {
     var history = document.getElementById("history")
     var histElems = document.getElementById("history").children;
@@ -324,5 +323,31 @@ function removeNonSparta() {
         if (parseFloat(histElems[item].innerHTML) < 300) {
             history.removeChild(histElems[item]);
         }
+    }
+}
+function sort(blockId, desc ) {
+    var desc = desc || false;
+    var mainBlock = document.getElementById(blockId);
+    var childBlock = mainBlock.children;
+    var buf = 0;
+    var length = childBlock.length;
+    for (var i = length - 1; i > 0; i--) {
+        for (var j = 0; j < i; j++) {
+            if ( parseFloat(childBlock[j].innerHTML) > parseFloat(childBlock[j + 1].innerHTML) ) {
+                buf = childBlock[j].innerHTML;
+                childBlock[j].innerHTML = childBlock[j + 1].innerHTML;
+                childBlock[j + 1].innerHTML = buf;
+            }
+        }
+    }
+}
+function colorize(block) {
+    var mainBlock = document.getElementById(block);
+    var childBlock = mainBlock.children;
+    var length = childBlock.length;
+    var colArr = ["#000000", "#110000", "#220000", "#330000", "#440000", "#550000", "#660000", "#770000", "#880000", "#990000", "#aa0000", "#bb0000", "#cc0000", "#dd0000", "#ee0000", "#ff0000"];
+    for (var item in childBlock) {
+        childBlock[item].style.background = colArr[length - item];
+        childBlock[item].style.color = "#fff";
     }
 }
