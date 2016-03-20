@@ -300,9 +300,13 @@ thirdFirst.addEventListener("click", function() {
 })
 var thirdSecond = document.getElementById('thirdSecond');
 thirdSecond.addEventListener("click", function() {
-    findThree("history");
-    // USDtoUL("history");
+    //findThree("history");
+    USDtoUL("history");
 
+});
+var thirdSecond2 = document.getElementById('thirdSecond2');
+thirdSecond2.addEventListener("click", function() {
+    findThree("history");
 });
 var thirdThird = document.getElementById('thirdThird');
 thirdThird.addEventListener("click", function() {
