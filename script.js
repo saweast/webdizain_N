@@ -98,9 +98,9 @@ convertor.addEventListener('input', function() { // делегирую нажа�
         from = selectFrom.options[selectFrom.selectedIndex].value;
         to = selectTo.options[selectTo.selectedIndex].value;
         if (benefits.checked && numberV > 100) { // начисление скидки в размере 5% если бенефит выбран и сумма превышает $100
-            res = ((+numberV + (+numberV * 0.05)) * +to / +from).toFixed(5);
+            res = ((+numberV + (+numberV * 0.05)) * +to / +from).toFixed(2);
         } else {
-            res = (+numberV * +to / +from).toFixed(5);
+            res = (+numberV * +to / +from).toFixed(2);
         }
         result.innerHTML = '<p>Result: ' + res + ' ' + selectTo.options[selectTo.selectedIndex].text + '</p>';
     }
@@ -111,11 +111,11 @@ benefits.addEventListener('click', function() { // обработчик на ч�
     var from = selectFrom.options[selectFrom.selectedIndex].value;
     var to = selectTo.options[selectTo.selectedIndex].value;
     if (benefits.checked && numberV > 100) { // начисление скидки в размере 5% если бенефит выбран и сумма превышает $100
-        res = ((+numberV + (+numberV * 0.05)) * +to / +from).toFixed(5);
+        res = ((+numberV + (+numberV * 0.05)) * +to / +from).toFixed(2);
     } else {
-        res = (+numberV * +to / +from).toFixed(5);
+        res = (+numberV * +to / +from).toFixed(2);
     }
-    result.innerHTML = '<p>Result: ' + res + ' ' + selectTo.options[selectTo.selectedIndex].text + '</p>';
+    result.innerHTML = '<p class="">Result: ' + res + ' ' + selectTo.options[selectTo.selectedIndex].text + '</p>';
 })
 swap.addEventListener('click', function() { // обработчик на кнопку "свап" 
     var buffer = '';
@@ -137,7 +137,7 @@ swap.addEventListener('click', function() { // обработчик на кно�
     numberV = document.getElementById('number').value;
     from = selectFrom.options[selectFrom.selectedIndex].value;
     to = selectTo.options[selectTo.selectedIndex].value;
-    res = (numberV * to / from).toFixed(5);
+    res = (numberV * to / from).toFixed(2);
     result.innerHTML = '<p>Result: ' + res + ' ' + selectTo.options[selectTo.selectedIndex].text + '</p>';
     // обновляем disable
     makeDisable(selectFrom, selectTo);
@@ -217,9 +217,9 @@ function getDraft() {
     var from = selectFrom.options[selectFrom.selectedIndex].value;
     var to = selectTo.options[selectTo.selectedIndex].value;
     if (benefits.checked && numberV > 100) { // начисление скидки в размере 5% если бенефит выбран и сумма превышает $100
-        res = ((+numberV + (+numberV * 0.05)) * +to / +from).toFixed(5);
+        res = ((+numberV + (+numberV * 0.05)) * +to / +from).toFixed(2);
     } else {
-        res = (+numberV * +to / +from).toFixed(5);
+        res = (+numberV * +to / +from).toFixed(2);
     }
 
     var myWindow = window.open("", "", "width=500, height=100");
@@ -269,9 +269,9 @@ third.addEventListener("click", function(e) {
     var from = selectFrom.options[selectFrom.selectedIndex].value;
     var to = selectTo.options[selectTo.selectedIndex].value;
     if (benefits.checked && numberV > 100) { // начисление скидки в размере 5% если бенефит выбран и сумма превышает $100
-        res = ((+numberV + (+numberV * 0.05)) * +to / +from).toFixed(5);
+        res = ((+numberV + (+numberV * 0.05)) * +to / +from).toFixed(2);
     } else {
-        res = (+numberV * +to / +from).toFixed(5);
+        res = (+numberV * +to / +from).toFixed(2);
     }
 
     var newElement = document.createElement('p');
@@ -293,9 +293,36 @@ thirdStyle.addEventListener('click', function() {
 });
 var thirdFirst = document.getElementById('thirdFirst');
 thirdFirst.addEventListener("click", function() {
-    
+    getSparta();
+    removeNonSparta();
+    removeNonSparta();
+    removeNonSparta();
 })
 var thirdSecond = document.getElementById('thirdSecond');
 thirdSecond.addEventListener("click", function() {
 
 })
+var thirdThird = document.getElementById('thirdThird');
+thirdSecond.addEventListener("click", function() {
+
+})
+
+
+function getSparta() {
+    var history = document.getElementById("history")
+    var histElems = document.getElementById("history").children;
+    for (var item in histElems) {
+        if (parseFloat(histElems[item].innerHTML) >= 300) {
+            histElems[item].style.background = "yellow";
+        }
+    }
+}
+function removeNonSparta() {
+    var history = document.getElementById("history")
+    var histElems = document.getElementById("history").children;
+    for (var item in histElems) {
+        if (parseFloat(histElems[item].innerHTML) < 300) {
+            history.removeChild(histElems[item]);
+        }
+    }
+}
