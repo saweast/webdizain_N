@@ -300,7 +300,7 @@ thirdFirst.addEventListener("click", function() {
 })
 var thirdSecond = document.getElementById('thirdSecond');
 thirdSecond.addEventListener("click", function() {
-
+    USDtoUL("history");
 });
 var thirdThird = document.getElementById('thirdThird');
 thirdThird.addEventListener("click", function() {
@@ -350,4 +350,25 @@ function colorize(block) {
         childBlock[item].style.background = colArr[length - item];
         childBlock[item].style.color = "#fff";
     }
+}
+function USDtoUL(block) {
+    var mainBlock = document.getElementById(block);
+    var childBlock = mainBlock.children;
+    var length = childBlock.length;
+    var ulBlock = document.getElementById("USD");
+    for (var item in childBlock) {
+        if (childBlock[item].innerHTML.match('USD')) {
+            var newLi = document.createElement("li");
+            newLi.innerHTML = childBlock[item].innerHTML;
+            ulBlock.appendChild(newLi);
+        }
+    }
+    var newLi = document.createElement('li');
+}
+function findThree(block) {
+    var mainBlock = document.getElementById(block);
+    var childBlock = mainBlock.children;
+    var length = childBlock.length;
+    var ulBlock = document.getElementById("USD");
+    
 }
