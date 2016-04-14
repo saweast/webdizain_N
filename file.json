@@ -1,0 +1,44 @@
+{
+    "currency": [
+    {
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/1235px-Flag_of_the_United_States.svg.png",
+        "attitudeToUSD": "1",
+        "name": "USD"
+    },
+    {
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/810px-Flag_of_Europe.svg.png",
+        "attitudeToUSD": "0.92310",
+        "name": "EUR"
+    },
+    {
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/1200px-Flag_of_the_United_Kingdom.svg.png",
+        "attitudeToUSD": "0.70183",
+        "name": "GBP"
+    },
+    {
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Flag_of_Canada.svg/1000px-Flag_of_Canada.svg.png",
+        "attitudeToUSD": "1.39705",
+        "name": "CAD"
+    },
+    {
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Flag_of_Eritrea.svg/1000px-Flag_of_Eritrea.svg.png",
+        "attitudeToUSD": "6.57428",
+        "name": "CNY"
+    },
+    {
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Russia.svg/900px-Flag_of_Russia.svg.png",
+        "attitudeToUSD": "75.4620",
+        "name": "RUB"
+    },
+    {
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Flag_of_Ukraine.svg/1024px-Flag_of_Ukraine.svg.png",
+        "attitudeToUSD": "25.5200",
+        "name": "UAH"
+    },
+    {
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Flag_of_Mexico.svg/840px-Flag_of_Mexico.svg.png",
+        "attitudeToUSD": "18.1045",
+        "name": "MXN"
+    }
+    ]
+}

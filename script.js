@@ -1,5 +1,80 @@
 "use strict";
 // наш обьектик обьектиков валют
+
+// переменные
+var selectFrom = document.getElementById('currencyFrom'),
+    selectTo = document.getElementById('currencyTo'),
+    imageNearFrom = document.getElementById('imgFrom'), // document.images[0]
+    imageNearTo = document.getElementById('imgTo'), // document.images[1]
+    swap = document.getElementsByTagName('button')[0],
+    result = document.getElementById('result'),
+    number = document.getElementById('number'),
+    convertor = document.getElementById('convertor'),
+    benefits = document.getElementById('benefits'),
+    newCurr = document.getElementById('newCurr'),
+    pid = document.getElementById("pid"),
+    ann = document.getElementById("ann"),
+    third = document.getElementById('third');
+
+function ajaxRequest() {
+    var activexmodes = ["Msxml2.XMLHTTP", "Microsoft.XMLHTTP"]
+    if (window.ActiveXObject) {
+        for (var i = 0; i < activexmodes.length; i++) {
+            try {
+                return new ActiveXObject(activexmodes[i])
+            } catch (e) {}
+        }
+    } else if (window.XMLHttpRequest)
+        return new XMLHttpRequest()
+    else
+        return false
+}
+
+var reqJSON = new ajaxRequest()
+reqJSON.onreadystatechange = function() {
+    if (reqJSON.readyState == 4) {
+        if (reqJSON.status == 200 || window.location.href.indexOf("http") == -1) {
+            var jsondata = JSON.parse(reqJSON.responseText);
+            // var cur = jsondata.currency;
+            // result += "<div><ul>";
+            // for (var item in cur) {
+            //     result += "<li>";
+            //     result += "<ul><li><b>Путь к картинке:</b> " + cur[item].img + "</li>";
+            //     result += "<li><b>Отношение к $:</b> " + cur[item].attitudeToUSD + "</li>";
+            //     result += "<li><b>Название валюты:</b> " + cur[item].name + "</li></ul>";
+            //     result += "</li>";
+
+            // }
+            // result += "</ul></div>";
+
+            
+            document.getElementById("newResult").innerHTML = jsondata;
+            console.log(jsondata)
+
+            return jsondata
+        } else {
+            alert("An error has occured making the request")
+        }
+    }
+}
+var draft = document.getElementById("draft");
+draft.addEventListener('click', function() {
+    if (draft.checked) {
+        reqJSON.open("GET", "file.json", true)
+        reqJSON.send(null)
+    }
+})
+
+selectTo.addEventListener('change', function() { // обработчик на смену селекта
+
+        var fileToOpen = selectTo.options[selectTo.selectedIndex].text;
+        fileToOpen = fileToOpen.toLowerCase() + ".json";
+        console.log(fileToOpen);
+    
+    reqJSON.open("GET", fileToOpen, true);
+    reqJSON.send(null)
+});
+
 var currency = {
     USD: {
         img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/1235px-Flag_of_the_United_States.svg.png',
@@ -50,20 +125,6 @@ var curLength = (function() {
     }
     return i;
 })();
-// переменные
-var selectFrom = document.getElementById('currencyFrom'),
-    selectTo = document.getElementById('currencyTo'),
-    imageNearFrom = document.getElementById('imgFrom'), // document.images[0]
-    imageNearTo = document.getElementById('imgTo'), // document.images[1]
-    swap = document.getElementsByTagName('button')[0],
-    result = document.getElementById('result'),
-    number = document.getElementById('number'),
-    convertor = document.getElementById('convertor'),
-    benefits = document.getElementById('benefits'),
-    newCurr = document.getElementById('newCurr'),
-    pid = document.getElementById("pid"),
-    ann = document.getElementById("ann"),
-    third = document.getElementById('third');
 
 // вызов функций
 makeSelect(selectFrom); // делаю селект
@@ -343,9 +404,10 @@ function sort(blockId, desc) {
     for (var i = length - 1; i > 0; i--) {
         for (var j = 0; j < i; j++) {
             if (parseFloat(childBlock[j].innerHTML) > parseFloat(childBlock[j + 1].innerHTML)) {
-                buf = childBlock[j].innerHTML;
-                childBlock[j].innerHTML = childBlock[j + 1].innerHTML;
-                childBlock[j + 1].innerHTML = buf;
+                buf = childBlock[j];
+                childBlock[j] = childBlock[j + 1];
+                childBlock[j + 1] = buf;
+                mainBlock.insertBefore(childBlock[j + 1], childBlock[j]);
             }
         }
     }
@@ -371,6 +433,7 @@ function USDtoUL(block) {
         if (childBlock[item].innerHTML.match('USD')) {
             var newLi = document.createElement("li");
             newLi.innerHTML = childBlock[item].innerHTML;
+            // document.getElementsByTagName("li")[0].text("");
             ulBlock.appendChild(newLi);
         } else {
             continue;
