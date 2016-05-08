@@ -184,49 +184,6 @@
             }
         });
 
-
-        //        var currency1 = {
-        //            USD: {
-        //                img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/1235px-Flag_of_the_United_States.svg.png',
-        //                attitudeToUSD: '1',
-        //                name: 'USD'
-        //            },
-        //            EUR: {
-        //                img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/810px-Flag_of_Europe.svg.png',
-        //                attitudeToUSD: '0.92310',
-        //                name: 'EUR'
-        //            },
-        //            GBP: {
-        //                img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/1200px-Flag_of_the_United_Kingdom.svg.png',
-        //                attitudeToUSD: '0.70183',
-        //                name: 'GBP'
-        //            },
-        //            CAD: {
-        //                img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Flag_of_Canada.svg/1000px-Flag_of_Canada.svg.png',
-        //                attitudeToUSD: '1.39705',
-        //                name: 'CAD'
-        //            },
-        //            CNY: {
-        //                img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Flag_of_Eritrea.svg/1000px-Flag_of_Eritrea.svg.png',
-        //                attitudeToUSD: '6.57428',
-        //                name: 'CNY'
-        //            },
-        //            RUB: {
-        //                img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Russia.svg/900px-Flag_of_Russia.svg.png',
-        //                attitudeToUSD: '75.4620',
-        //                name: 'RUB'
-        //            },
-        //            UAH: {
-        //                img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Flag_of_Ukraine.svg/1024px-Flag_of_Ukraine.svg.png',
-        //                attitudeToUSD: '25.5200',
-        //                name: 'UAH'
-        //            },
-        //            MXN: {
-        //                img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Flag_of_Mexico.svg/840px-Flag_of_Mexico.svg.png',
-        //                attitudeToUSD: '18.1045',
-        //                name: 'MXN'
-        //            }
-        //        }
         var currency = <?php echo $contents;?>;
         var curLength = (function() {
             var i = 0;
@@ -414,32 +371,12 @@
             }
         }
 
-        // window.onload = function() {
-        //     var myWindow = "";
-        //     var timer1 = setTimeout(function(){
-        //         myWindow = window.open("", "", "width=500, height=200");
-        //         var block = document.createElement('img');
-        //         var time = document.createElement('p');
-        //         var t = new Date();
-        //         t = t.toUTCString();
-        //         time.innerHTML = t;
-        //         block.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/1235px-Flag_of_the_United_States.svg.png';
-        //         block.height = 150;
-        //         block.width = 300;
-        //         myWindow.document.body.appendChild(time);
-        //         myWindow.document.body.appendChild(block);
-        //     }, 10000);
-        //     var timer2 = setTimeout(function(){
-        //         myWindow.blur();
-        //     }, 20000)
-        // }
-
 
         function writeToFile(str) {
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.onreadystatechange = function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    // document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+
                 }
             };
             xmlhttp.open("GET", "writeCSV.php?q=" + str, true);
@@ -459,8 +396,7 @@
                 res = (+numberV * +to / +from).toFixed(2);
             }
             var newElement = document.createElement('p');
-            // var newTextNode = document.createTextNode(res + " " + selectTo.options[selectTo.selectedIndex].text);
-            // history.appendChild(newTextNode);
+
             newElement.innerHTML = res + " " + selectTo.options[selectTo.selectedIndex].text;
             resString = new Date() + "," + res + "," + selectTo.options[selectTo.selectedIndex].text;
             writeToFile(resString);
@@ -486,7 +422,7 @@
         });
         var thirdSecond = document.getElementById('thirdSecond');
         thirdSecond.addEventListener("click", function() {
-            //findThree("history");
+
             USDtoUL("history");
 
         });
@@ -558,7 +494,7 @@
                 if (childBlock[item].innerHTML.match('USD')) {
                     var newLi = document.createElement("li");
                     newLi.innerHTML = childBlock[item].innerHTML;
-                    // document.getElementsByTagName("li")[0].text("");
+
                     ulBlock.appendChild(newLi);
                 } else {
                     continue;
