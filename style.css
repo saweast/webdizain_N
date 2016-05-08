@@ -11,6 +11,31 @@
 
 div {
     margin-top: 10px;
+    position: relative;
+}
+#imgToSell,
+#imgFromSell,
+#imgToBuy,
+#imgFromBuy {
+    position: absolute;
+    height: 1.2em;
+    font-size: 1em;
+}
+#imgFromSell {
+    left: 227px;
+    top: -15px;
+}
+#imgFromBuy {
+    left: 227px;
+    top: 30px;
+}
+#imgToSell {
+    left: 510px;
+    top: -15px;
+}
+#imgToBuy {
+    left: 510px;
+    top: 30px;
 }
 
 #swap {

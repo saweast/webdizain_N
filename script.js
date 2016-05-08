@@ -6,6 +6,10 @@ var selectFrom = document.getElementById('currencyFrom'),
     selectTo = document.getElementById('currencyTo'),
     imageNearFrom = document.getElementById('imgFrom'), // document.images[0]
     imageNearTo = document.getElementById('imgTo'), // document.images[1]
+    imgFromSell = document.getElementById('imgFromSell'), // document.images[1]
+    imgFromBuy = document.getElementById('imgFromBuy'), // document.images[1]
+    imgToSell = document.getElementById('imgToSell'), // document.images[1]
+    imgToBuy = document.getElementById('imgToBuy'), // document.images[1]
     swap = document.getElementsByTagName('button')[0],
     result = document.getElementById('result'),
     number = document.getElementById('number'),
@@ -17,107 +21,115 @@ var selectFrom = document.getElementById('currencyFrom'),
     third = document.getElementById('third');
 
 function ajaxRequest() {
-    var activexmodes = ["Msxml2.XMLHTTP", "Microsoft.XMLHTTP"]
+    var activexmodes = ["Msxml2.XMLHTTP", "Microsoft.XMLHTTP"];
     if (window.ActiveXObject) {
         for (var i = 0; i < activexmodes.length; i++) {
             try {
-                return new ActiveXObject(activexmodes[i])
+                return new ActiveXObject(activexmodes[i]);
             } catch (e) {}
         }
     } else if (window.XMLHttpRequest)
-        return new XMLHttpRequest()
+        return new XMLHttpRequest();
     else
         return false
 }
 
-var reqJSON = new ajaxRequest()
+var reqJSON = new ajaxRequest();
+var reqJSON2 = new ajaxRequest();
+
 reqJSON.onreadystatechange = function() {
     if (reqJSON.readyState == 4) {
         if (reqJSON.status == 200 || window.location.href.indexOf("http") == -1) {
             var jsondata = JSON.parse(reqJSON.responseText);
-            // var cur = jsondata.currency;
-            // result += "<div><ul>";
-            // for (var item in cur) {
-            //     result += "<li>";
-            //     result += "<ul><li><b>Путь к картинке:</b> " + cur[item].img + "</li>";
-            //     result += "<li><b>Отношение к $:</b> " + cur[item].attitudeToUSD + "</li>";
-            //     result += "<li><b>Название валюты:</b> " + cur[item].name + "</li></ul>";
-            //     result += "</li>";
-
-            // }
-            // result += "</ul></div>";
-
-            
-            document.getElementById("newResult").innerHTML = jsondata;
-            console.log(jsondata)
-
+            imageNearTo.src = jsondata.url;
+            imgToSell.textContent = "sell: "+jsondata.sell;
+            imgToBuy.textContent = "buy: "+jsondata.buy;
             return jsondata
         } else {
             alert("An error has occured making the request")
         }
     }
-}
-var draft = document.getElementById("draft");
-draft.addEventListener('click', function() {
-    if (draft.checked) {
-        reqJSON.open("GET", "file.json", true)
-        reqJSON.send(null)
+};
+reqJSON2.onreadystatechange = function() {
+    if (reqJSON2.readyState == 4) {
+        if (reqJSON2.status == 200 || window.location.href.indexOf("http") == -1) {
+            var jsondata = JSON.parse(reqJSON2.responseText);
+            imageNearFrom.src = jsondata.url;
+            imgFromSell.textContent = "sell: "+jsondata.sell;
+            imgFromBuy.textContent = "buy: "+jsondata.buy;
+            return jsondata
+        } else {
+            alert("An error has occured making the request")
+        }
     }
-})
+};
 
 selectTo.addEventListener('change', function() { // обработчик на смену селекта
-
-        var fileToOpen = selectTo.options[selectTo.selectedIndex].text;
-        fileToOpen = fileToOpen.toLowerCase() + ".json";
-        console.log(fileToOpen);
-    
+    var fileToOpen = selectTo.options[selectTo.selectedIndex].text;
+    fileToOpen = fileToOpen.toLowerCase() + ".json";
     reqJSON.open("GET", fileToOpen, true);
     reqJSON.send(null)
 });
+selectFrom.addEventListener('change', function() { // обработчик на смену селекта
+    var fileToOpen = selectFrom.options[selectFrom.selectedIndex].text;
+    fileToOpen = fileToOpen.toLowerCase() + ".json";
+    reqJSON2.open("GET", fileToOpen, true);
+    reqJSON2.send(null)
+});
 
-var currency = {
-    USD: {
-        img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/1235px-Flag_of_the_United_States.svg.png',
-        attitudeToUSD: '1',
-        name: 'USD'
-    },
-    EUR: {
-        img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/810px-Flag_of_Europe.svg.png',
-        attitudeToUSD: '0.92310',
-        name: 'EUR'
-    },
-    GBP: {
-        img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/1200px-Flag_of_the_United_Kingdom.svg.png',
-        attitudeToUSD: '0.70183',
-        name: 'GBP'
-    },
-    CAD: {
-        img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Flag_of_Canada.svg/1000px-Flag_of_Canada.svg.png',
-        attitudeToUSD: '1.39705',
-        name: 'CAD'
-    },
-    CNY: {
-        img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Flag_of_Eritrea.svg/1000px-Flag_of_Eritrea.svg.png',
-        attitudeToUSD: '6.57428',
-        name: 'CNY'
-    },
-    RUB: {
-        img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Russia.svg/900px-Flag_of_Russia.svg.png',
-        attitudeToUSD: '75.4620',
-        name: 'RUB'
-    },
-    UAH: {
-        img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Flag_of_Ukraine.svg/1024px-Flag_of_Ukraine.svg.png',
-        attitudeToUSD: '25.5200',
-        name: 'UAH'
-    },
-    MXN: {
-        img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Flag_of_Mexico.svg/840px-Flag_of_Mexico.svg.png',
-        attitudeToUSD: '18.1045',
-        name: 'MXN'
+
+var draft = document.getElementById("draft");
+draft.addEventListener('click', function() {
+    if (draft.checked) {
+        reqJSON.open("GET", "file.json", true);
+        reqJSON.send(null)
     }
-}
+});
 
+
+//        var currency1 = {
+//            USD: {
+//                img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/1235px-Flag_of_the_United_States.svg.png',
+//                attitudeToUSD: '1',
+//                name: 'USD'
+//            },
+//            EUR: {
+//                img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/810px-Flag_of_Europe.svg.png',
+//                attitudeToUSD: '0.92310',
+//                name: 'EUR'
+//            },
+//            GBP: {
+//                img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/1200px-Flag_of_the_United_Kingdom.svg.png',
+//                attitudeToUSD: '0.70183',
+//                name: 'GBP'
+//            },
+//            CAD: {
+//                img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Flag_of_Canada.svg/1000px-Flag_of_Canada.svg.png',
+//                attitudeToUSD: '1.39705',
+//                name: 'CAD'
+//            },
+//            CNY: {
+//                img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Flag_of_Eritrea.svg/1000px-Flag_of_Eritrea.svg.png',
+//                attitudeToUSD: '6.57428',
+//                name: 'CNY'
+//            },
+//            RUB: {
+//                img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Russia.svg/900px-Flag_of_Russia.svg.png',
+//                attitudeToUSD: '75.4620',
+//                name: 'RUB'
+//            },
+//            UAH: {
+//                img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Flag_of_Ukraine.svg/1024px-Flag_of_Ukraine.svg.png',
+//                attitudeToUSD: '25.5200',
+//                name: 'UAH'
+//            },
+//            MXN: {
+//                img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Flag_of_Mexico.svg/840px-Flag_of_Mexico.svg.png',
+//                attitudeToUSD: '18.1045',
+//                name: 'MXN'
+//            }
+//        }
+var currency = <?php echo $contents;?>;
 var curLength = (function() {
     var i = 0;
     for (var item in currency) {
@@ -177,8 +189,8 @@ benefits.addEventListener('click', function() { // обработчик на ч�
         res = (+numberV * +to / +from).toFixed(2);
     }
     result.innerHTML = '<p class="">Result: ' + res + ' ' + selectTo.options[selectTo.selectedIndex].text + '</p>';
-})
-swap.addEventListener('click', function() { // обработчик на кнопку "свап" 
+});
+swap.addEventListener('click', function() { // обработчик на кнопку "свап"
     var buffer = '';
     var benefits = 0,
         draft = 0,
@@ -204,31 +216,32 @@ swap.addEventListener('click', function() { // обработчик на кно�
     makeDisable(selectFrom, selectTo);
     makeDisable(selectTo, selectFrom);
 
-})
+});
 newCurr.addEventListener('click', function() { // добавляю в мой обьект валют еще одну валюту
-        var newName = document.getElementById('newName').value;
-        var newSrc = document.getElementById('newSrc').value;
-        var newAttitide = document.getElementById('newAttitide').value;
-        currency[newName] = {
-            img: newSrc,
-            attitudeToUSD: newAttitide,
-            name: newName
-        };
-        // обновляю селекты
-        var option = document.createElement('option');
-        var option1 = document.createElement('option');
-        option.text = currency[newName].name;
-        option1.text = currency[newName].name;
-        option.value = currency[newName].attitudeToUSD;
-        option1.value = currency[newName].attitudeToUSD;
-        selectFrom.add(option);
-        selectTo.add(option1);
-        // чищю инпуты
-        document.getElementById('newName').value = "";
-        document.getElementById('newSrc').value = "";
-        document.getElementById('newAttitide').value = "";
-    })
-    // функции
+    var newName = document.getElementById('newName').value;
+    var newSrc = document.getElementById('newSrc').value;
+    var newAttitide = document.getElementById('newAttitide').value;
+    currency[newName] = {
+        img: newSrc,
+        attitudeToUSD: newAttitide,
+        name: newName
+    }; // дописывать в
+
+    // обновляю селекты
+    var option = document.createElement('option');
+    var option1 = document.createElement('option');
+    option.text = currency[newName].name;
+    option1.text = currency[newName].name;
+    option.value = currency[newName].attitudeToUSD;
+    option1.value = currency[newName].attitudeToUSD;
+    selectFrom.add(option);
+    selectTo.add(option1);
+    // чищю инпуты
+    document.getElementById('newName').value = "";
+    document.getElementById('newSrc').value = "";
+    document.getElementById('newAttitide').value = "";
+});
+// функции
 function makeSelect(elem) { // заполняет селект
     for (var item in currency) {
         var option = document.createElement("option");
@@ -304,9 +317,9 @@ function getDraft() {
 }
 
 // window.onload = function() {
-//     var myWindow = "";    
-//     var timer1 = setTimeout(function(){        
-//         myWindow = window.open("", "", "width=500, height=200");  
+//     var myWindow = "";
+//     var timer1 = setTimeout(function(){
+//         myWindow = window.open("", "", "width=500, height=200");
 //         var block = document.createElement('img');
 //         var time = document.createElement('p');
 //         var t = new Date();
@@ -323,8 +336,21 @@ function getDraft() {
 //     }, 20000)
 // }
 
+
+function writeToFile(str) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            // document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+        }
+    };
+    xmlhttp.open("GET", "writeCSV.php?q=" + str, true);
+    xmlhttp.send();
+}
+
 third.addEventListener("click", function(e) {
     var history = document.getElementById("history");
+    var resString;
     var res = 0;
     var numberV = document.getElementById('number').value;
     var from = selectFrom.options[selectFrom.selectedIndex].value;
@@ -334,11 +360,12 @@ third.addEventListener("click", function(e) {
     } else {
         res = (+numberV * +to / +from).toFixed(2);
     }
-
     var newElement = document.createElement('p');
     // var newTextNode = document.createTextNode(res + " " + selectTo.options[selectTo.selectedIndex].text);
     // history.appendChild(newTextNode);
     newElement.innerHTML = res + " " + selectTo.options[selectTo.selectedIndex].text;
+    resString = new Date() + "," + res + "," + selectTo.options[selectTo.selectedIndex].text;
+    writeToFile(resString);
     history.appendChild(newElement);
 });
 
@@ -358,7 +385,7 @@ thirdFirst.addEventListener("click", function() {
     removeNonSparta();
     removeNonSparta();
     removeNonSparta();
-})
+});
 var thirdSecond = document.getElementById('thirdSecond');
 thirdSecond.addEventListener("click", function() {
     //findThree("history");
@@ -373,7 +400,7 @@ var thirdThird = document.getElementById('thirdThird');
 thirdThird.addEventListener("click", function() {
     sort("history");
     colorize("history");
-})
+});
 
 function getSparta() {
     var history = document.getElementById("history")
