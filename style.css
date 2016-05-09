@@ -8,7 +8,17 @@
     width: 40px;
     height: 27px;
 }
-
+#newName,
+#newSrc,
+#newAttitide {
+    transition: .2s;
+}
+.error {
+    background: rgba(255, 0, 1, 0.5);
+}
+.success {
+    background: rgba(255, 0, 1, 0.5);
+}
 div {
     margin-top: 10px;
     position: relative;

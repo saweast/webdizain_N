@@ -43,13 +43,13 @@
             </div>
             <div class='adder'>
                 <label>Short name:
-                    <input type="text" id="newName">
+                    <input type="text" id="newName" placeholder="краткое имя валюты">
                 </label>
                 <label>Image src:
-                    <input type="file" id="newSrc">
+                    <input type="text" id="newSrc" placeholder="url картинки">
                 </label>
                 <label>Attirude to USD:
-                    <input type="number" id="newAttitide">
+                    <input type="number" id="newAttitide" placeholder="отношение к $">
                 </label>
                 <button id='newCurr'>Add new currency</button>
             </div>
@@ -87,10 +87,29 @@
             </div>            
         </div>
     </div>
+<!--    -->
     <?php
     $filename = "file.json";
     $handle = fopen($filename, "r");
     $contents = fread($handle, filesize($filename));
+    $azaza = json_decode($contents, true);
+    foreach ($azaza as $key) {
+        foreach ($key as $k => $value) {
+            if ($k == 'img') {
+                $image = $key[$k];
+            }
+            if ($k == 'name') {
+                $curr = $key[$k];
+            }
+            if ($k == 'attitudetousd') {
+                $val = $key[$k];
+            }
+            $f = fopen("$curr.json", 'w') or die('FUCK');
+            $s = '{"url":"'.$image.'", "buy":"'.$val.'", "sell":"'.$val*0.95.'"}';
+            fwrite($f, $s);
+            fclose($f);
+        }
+    }
     fclose($handle);
 //    echo $contents;
     ?>
@@ -272,15 +291,48 @@
             makeDisable(selectTo, selectFrom);
 
         });
+
+        function makeFile(str) {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+                }
+            };
+            xmlhttp.open("GET", "writeJSON.php?q=" + str, true);
+            xmlhttp.send();
+        }
         newCurr.addEventListener('click', function() { // добавляю в мой обьект валют еще одну валюту
             var newName = document.getElementById('newName').value;
             var newSrc = document.getElementById('newSrc').value;
             var newAttitide = document.getElementById('newAttitide').value;
+            if (newName == '' || newSrc == '' || newAttitide == '') {
+                if (newName == '') {
+                    document.getElementById('newName').className = 'error';
+                    setTimeout(function () {
+                        document.getElementById('newName').className = '';
+                    }, 2000);
+                }
+                if (newSrc == '') {
+                    document.getElementById('newSrc').className = 'error';
+                    setTimeout(function () {
+                        document.getElementById('newSrc').className = '';
+                    }, 2000);
+                }
+                if (newAttitide == '') {
+                    document.getElementById('newAttitide').className = 'error';
+                    setTimeout(function () {
+                        document.getElementById('newAttitide').className = '';
+                    }, 2000);
+                }
+                return 0;
+            }
             currency[newName] = {
                 img: newSrc,
                 attitudeToUSD: newAttitide,
                 name: newName
-            }; // дописывать в
+            };
+            makeFile(JSON.stringify(currency));
 
             // обновляю селекты
             var option = document.createElement('option');
