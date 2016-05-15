@@ -348,6 +348,17 @@ function writeToFile(str) {
     xmlhttp.send();
 }
 
+function writeToFileXML(str) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            // document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+        }
+    };
+    xmlhttp.open("GET", "writeXML.php?q=" + str, true);
+    xmlhttp.send();
+}
+
 third.addEventListener("click", function(e) {
     var history = document.getElementById("history");
     var resString;
@@ -366,6 +377,7 @@ third.addEventListener("click", function(e) {
     newElement.innerHTML = res + " " + selectTo.options[selectTo.selectedIndex].text;
     resString = new Date() + "," + res + "," + selectTo.options[selectTo.selectedIndex].text;
     writeToFile(resString);
+    writeToFileXML(resString);
     history.appendChild(newElement);
 });
 

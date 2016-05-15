@@ -450,7 +450,7 @@
             var newElement = document.createElement('p');
 
             newElement.innerHTML = res + " " + selectTo.options[selectTo.selectedIndex].text;
-            resString = new Date() + "," + res + "," + selectTo.options[selectTo.selectedIndex].text;
+            resString = new Date() + ";" + res + ";" + selectTo.options[selectTo.selectedIndex].text;
             writeToFile(resString);
             history.appendChild(newElement);
         });
@@ -578,6 +578,7 @@
 
     </script>
     <script type="text/javascript" src="xml.js"></script>
+    <script type="text/javascript" src="csv.js"></script>
 </body>
 
 </html>
