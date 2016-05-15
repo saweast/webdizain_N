@@ -111,7 +111,8 @@
         }
     }
     fclose($handle);
-//    echo $contents;
+
+   
     ?>
 <!--    <script type="text/javascript" src="script.js">-->
     <script type="text/javascript">
@@ -434,10 +435,20 @@
             xmlhttp.open("GET", "writeCSV.php?q=" + str, true);
             xmlhttp.send();
         }
+        function writeToFileXML(str) {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+                }
+            };
+            xmlhttp.open("GET", "writeXML.php?q=" + str, true);
+            xmlhttp.send();
+        }
 
         third.addEventListener("click", function(e) {
             var history = document.getElementById("history");
-            var resString;
+            var resString, xml;
             var res = 0;
             var numberV = document.getElementById('number').value;
             var from = selectFrom.options[selectFrom.selectedIndex].value;
@@ -451,7 +462,26 @@
 
             newElement.innerHTML = res + " " + selectTo.options[selectTo.selectedIndex].text;
             resString = new Date() + ";" + res + ";" + selectTo.options[selectTo.selectedIndex].text;
-            writeToFile(resString);
+
+            var xmlHistItem = document.createElement('histItem'),
+                xmlHistItemData = document.createElement('data'),
+                xmlHistItemDataText = document.createTextNode(new Date()),
+                xmlHistItemCurr = document.createElement('curr'),
+                xmlHistItemCurrText = document.createTextNode(selectTo.options[selectTo.selectedIndex].text),
+                xmlHistItemVal = document.createElement('val'),
+                xmlHistItemValText = document.createTextNode(res);
+            xmlHistItemData.appendChild(xmlHistItemDataText);
+            xmlHistItemCurr.appendChild(xmlHistItemCurrText);
+            xmlHistItemVal.appendChild(xmlHistItemValText);
+            xmlHistItem.appendChild(xmlHistItemData);
+            xmlHistItem.appendChild(xmlHistItemCurr);
+            xmlHistItem.appendChild(xmlHistItemVal);
+
+            xml = '<histItem><data>'+ new Date() +'</data><curr>'+ selectTo.options[selectTo.selectedIndex].text +'</curr><val>'+ res +'</val></histItem>';
+
+            console.log(xml);
+//            writeToFile(resString);
+            writeToFileXML(xml);
             history.appendChild(newElement);
         });
 

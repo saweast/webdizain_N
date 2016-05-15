@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: lavor
- * Date: 15.05.2016
- * Time: 14:49
- */
-
 $q = $_REQUEST["q"];
 $q = strtolower($q);
 $q .= '
