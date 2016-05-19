@@ -92,6 +92,7 @@
                 <option value="eur">EUR</option>
             </select>
             <button onclick="return false;" id="an5b">5 ann</button>
+            <button onclick="return false;" id="pid5b">5 pidg</button>
 
         </div>
     </div>

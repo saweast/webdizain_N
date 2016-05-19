@@ -1,20 +1,25 @@
 /**
  * Created by lavor on 07.05.2016.
  */
-var xhr = new XMLHttpRequest();
 
-xhr.open('GET', 'pid.xml', true);
+var button = document.getElementById('pid5b');
 
-xhr.send();
+button.addEventListener('click', function (event) {
+    var input = document.getElementById('an5i').value;
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', input+'.xml', true);
+    xhr.send();
 
-xhr.onreadystatechange = function() {
-    if (this.readyState != 4) return;
-    if (this.status != 200) {
-        alert( 'ошибка: ' + (this.status ? this.statusText : 'запрос не удался') );
-        return;
-    }
-    parseXml(this.responseXML);
-};
+    xhr.onreadystatechange = function () {
+        if (this.readyState != 4) return;
+        if (this.status != 200) {
+            alert('ошибка: ' + (this.status ? this.statusText : 'запрос не удался'));
+            return;
+        }
+        parseXml(this.responseXML);
+    };
+});
+
 function parseXml(xml) {
     var XML = xml;
     var last = document.getElementsByTagName('body')[0],
@@ -35,7 +40,6 @@ function parseXml(xml) {
             LI.appendChild(TXT);
             UL.appendChild(LI);
         }
-
     }
     last.appendChild(UL);
 }
