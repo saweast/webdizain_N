@@ -84,7 +84,15 @@
                 <h2>Лаворчук индивидуальные задания</h2>
                 <h3>Задание к 3 и 4 лабораторным работам</h3>
                 <button id="thirdThird" title="Лаворчук, отсортировать и закрасить данные">Sort</button>
-            </div>            
+            </div>
+<!--            <input type="text" placeholder="Валюта" id="an5i">-->
+            <select id="an5i">
+                <option value="cad">CAD</option>
+                <option value="usd">USD</option>
+                <option value="eur">EUR</option>
+            </select>
+            <button onclick="return false;" id="an5b">5 ann</button>
+
         </div>
     </div>
 <!--    -->
@@ -460,7 +468,7 @@
             }
             var newElement = document.createElement('p');
 
-            newElement.innerHTML = res + " " + selectTo.options[selectTo.selectedIndex].text;
+            newElement.innerHTML = new Date() +" "+res + " " + selectTo.options[selectTo.selectedIndex].text;
             resString = new Date() + ";" + res + ";" + selectTo.options[selectTo.selectedIndex].text;
 
             var xmlHistItem = document.createElement('histItem'),

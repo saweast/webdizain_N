@@ -23,13 +23,19 @@ function parseXml(xml) {
         histItems = XML.getElementsByTagName('histItem');
     for (item = 0; item < histItems.length; item++) {
         data = histItems[item].getElementsByTagName('data')[0].innerHTML;
-        curr = histItems[item].getElementsByTagName('curr')[0].innerHTML;
-        val = histItems[item].getElementsByTagName('val')[0].innerHTML;
-        string = "Дата: " + data + ", валюта: " + curr + ", курс: " + val;
-        TXT = document.createTextNode(string);
-        LI = document.createElement('li');
-        LI.appendChild(TXT);
-        UL.appendChild(LI);
+        var dateStr = new Date(data);
+        var nowDay = new Date().getDate();
+        var dateStrDay = dateStr.getDate();
+        if (dateStrDay > nowDay-3) {
+            curr = histItems[item].getElementsByTagName('curr')[0].innerHTML;
+            val = histItems[item].getElementsByTagName('val')[0].innerHTML;
+            string = "Дата: " + data + ", валюта: " + curr + ", курс: " + val;
+            TXT = document.createTextNode(string);
+            LI = document.createElement('li');
+            LI.appendChild(TXT);
+            UL.appendChild(LI);
+        }
+
     }
     last.appendChild(UL);
 }

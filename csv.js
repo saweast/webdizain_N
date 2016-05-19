@@ -2,21 +2,31 @@
  * Created by lavor on 15.05.2016.
  */
 
-var xhr = new XMLHttpRequest();
 
-xhr.open('GET', 'ann.csv', true);
+var button = document.getElementById('an5b');
+button.addEventListener('click', function (event) {
+    var input = document.getElementById('an5i').value;
 
-xhr.send();
+    var xhr = new XMLHttpRequest();
 
-xhr.onreadystatechange = function() {
+    xhr.open('GET', input+'.csv', true);
 
-    if (this.readyState != 4) return;
-    if (this.status != 200) {
-        alert( 'ошибка: ' + (this.status ? this.statusText : 'запрос не удался') );
-        return;
-    }
+    xhr.send();
+
+    xhr.onreadystatechange = function() {
+
+        if (this.readyState != 4) return;
+        if (this.status != 200) {
+            alert( 'ошибка: ' + (this.status ? this.statusText : 'запрос не удался') );
+            return;
+        }
+        makeCSV(this.responseText, input)
+
+    };
+});
+function makeCSV(str, mod) {
     var last = document.getElementsByTagName('body')[0],
-        csvString = this.responseText, i = 0, obj, csvRow, date, ul = document.createElement('ul'), li, liText;
+        csvString = str, i = 0, obj, csvRow, date, ul = document.createElement('ul'), li, liText;
 
     csvString = csvString.split('\n');
     for (i; i < csvString.length - 1; i++) {
@@ -32,4 +42,4 @@ xhr.onreadystatechange = function() {
         ul.appendChild(li)
     }
     last.appendChild(ul);
-};
+}
