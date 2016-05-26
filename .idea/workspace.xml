@@ -5,22 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f782b54-8eb2-436c-b3d2-4a7eca65b83a" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cad.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cny.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/eur.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gbp.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mxn.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rub.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uah.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/usd.json" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cad.xml" afterPath="$PROJECT_DIR$/cad.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eur.xml" afterPath="$PROJECT_DIR$/eur.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cny.json" afterPath="$PROJECT_DIR$/cny.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file.json" afterPath="$PROJECT_DIR$/file.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/usd.xml" afterPath="$PROJECT_DIR$/usd.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xml.js" afterPath="$PROJECT_DIR$/xml.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/writeJSON.php" afterPath="$PROJECT_DIR$/writeJSON.php" />
     </list>
     <ignored path="webdizain_N.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,14 +31,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="109" column="38" selection-start-line="109" selection-start-column="38" selection-end-line="109" selection-end-column="38" />
+            <state relative-caret-position="189">
+              <caret line="444" column="38" selection-start-line="444" selection-start-column="33" selection-end-line="444" selection-end-column="38" />
               <folding>
-                <marker date="1464289100626" expanded="true" signature="5034:5170" placeholder="..." />
+                <marker date="1464289420377" expanded="true" signature="5034:5170" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="writeJSON.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/writeJSON.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -57,8 +56,8 @@
       <file leaf-file-name="file.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/file.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
+            <state relative-caret-position="0">
+              <caret line="0" column="24" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -92,7 +91,6 @@
         <option value="$PROJECT_DIR$/style.css" />
         <option value="$PROJECT_DIR$/new.json" />
         <option value="$PROJECT_DIR$/.json" />
-        <option value="$PROJECT_DIR$/writeJSON.php" />
         <option value="$PROJECT_DIR$/script.js" />
         <option value="$PROJECT_DIR$/jsons/writeXML.php" />
         <option value="$PROJECT_DIR$/jsons/pid.xml" />
@@ -107,8 +105,9 @@
         <option value="$PROJECT_DIR$/xml.js" />
         <option value="$PROJECT_DIR$/cad.xml" />
         <option value="$PROJECT_DIR$/usd.xml" />
-        <option value="$PROJECT_DIR$/file.json" />
         <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/file.json" />
+        <option value="$PROJECT_DIR$/writeJSON.php" />
       </list>
     </option>
   </component>
@@ -255,12 +254,12 @@
       <workItem from="1463693610630" duration="1019000" />
       <workItem from="1464018950963" duration="24000" />
       <workItem from="1464163844534" duration="646000" />
-      <workItem from="1464284895759" duration="4225000" />
+      <workItem from="1464284895759" duration="5747000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51951000" />
+    <option name="totallyTimeSpent" value="53473000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
@@ -517,14 +516,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/writeJSON.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="32" column="21" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/script.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -663,19 +654,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/file.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
+        <state relative-caret-position="0">
+          <caret line="0" column="24" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="109" column="38" selection-start-line="109" selection-start-column="38" selection-end-line="109" selection-end-column="38" />
+        <state relative-caret-position="189">
+          <caret line="444" column="38" selection-start-line="444" selection-start-column="33" selection-end-line="444" selection-end-column="38" />
           <folding>
-            <marker date="1464289100626" expanded="true" signature="5034:5170" placeholder="..." />
+            <marker date="1464289420377" expanded="true" signature="5034:5170" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/writeJSON.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>

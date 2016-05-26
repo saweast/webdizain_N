@@ -6,7 +6,6 @@
  * Time: 17:30
  */
 $q = $_REQUEST["q"];
-$q = strtolower($q);
 //$q .= '
 //';
 $data = json_decode($q);
