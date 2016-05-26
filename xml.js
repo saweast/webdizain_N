@@ -6,7 +6,6 @@ var button = document.getElementById('pid5b');
 
 button.addEventListener('click', function (event) {
     var input = document.getElementById('an5i').value;
-    console.log(input);
     var xhr = new XMLHttpRequest();
     xhr.open('GET', input+'.xml', true);
     xhr.send();
@@ -32,7 +31,6 @@ function parseXml(xml) {
         var dateStr = new Date(data);
         var nowDay = new Date().getDate();
         var dateStrDay = dateStr.getDate();
-        console.log("dateStrDay "+dateStrDay+":"+"nowDay "+nowDay+(dateStrDay > nowDay-3) +" bla "+ item);
         if (dateStrDay > nowDay-3) {
             curr = histItems[item].getElementsByTagName('curr')[0].innerHTML;
             val = histItems[item].getElementsByTagName('val')[0].innerHTML;

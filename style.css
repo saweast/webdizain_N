@@ -69,20 +69,19 @@ div {
 
 .adder {
     position: absolute;
-    top: 15px;
-    right: 170px;
-    float: right;
+    top: 0;
+    right: 0;
     width: 200px;
     padding: 25px;
     border: 1px solid red;
-    border-radius: 25px;
+    /*border-radius: 25px;*/
 }
 
 #convertor {
-    height: 180px;
-    padding: 25px;
-    border: 1px solid red;
-    border-radius: 25px;
+    /*height: 180px;*/
+    /*padding: 25px;*/
+    /*border: 1px solid red;*/
+    /*border-radius: 25px;*/
 }
 
 h1 {

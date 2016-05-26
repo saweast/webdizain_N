@@ -60,40 +60,26 @@
         </div>
         <div class="newindow">
             <div>
-                <h2>Общее задание 3 и 4 лабы</h2>
                 <button id="third">Записать в список</button>
                 <button id="thirdStyle">Отстилизировать список</button>
             </div>
             <div>
-                <h2>Подгорный индивидуальные задания</h2>
-                <h3>Задание к 2 лабораторной работе</h3>
-                <button id="pid" onclick="getDraft();">Чек</button>
-                <h3>Задание к 3 и 4 лабораторным работам</h3>
-                <button id="thirdSecond" title="Подгорный, скопировать трансакции с $, если больше 3 копий поменять размер текста">copy USD actions</button>
-                <button id="thirdSecond2">Если больше 3шт меняй цвет текста</button>
-            </div>
+                <button id="pid" onclick="getDraft();">Вывести чек</button>
+                </div>
             <div>
-                <h2>Анохина индивидуальные задания</h2>
-                <h3>Задание к 2 лабораторной работе</h3>
-                <button id="ann" onclick="getBrowserInfo();">Браузер</button>
-                <h3>Задание к 3 и 4 лабораторным работам</h3>
-                <button id="thirdFirst" title="Анохина, выделяем значения больше 300, все остальные удаляем">more than 300</button>
+                <button id="thirdSecond" title="Подгорный, скопировать трансакции с $, если больше 3 копий поменять размер текста">Скопировать USD трансакции</button>
+                <button id="thirdSecond2">Сменить цвет, если больше 3шт.</button>
+            </div>
 
-            </div>
-            <div>
-                <h2>Лаворчук индивидуальные задания</h2>
-                <h3>Задание к 3 и 4 лабораторным работам</h3>
-                <button id="thirdThird" title="Лаворчук, отсортировать и закрасить данные">Sort</button>
-            </div>
 <!--            <input type="text" placeholder="Валюта" id="an5i">-->
+            <div>
             <select id="an5i">
                 <option value="cad">CAD</option>
                 <option value="usd">USD</option>
                 <option value="eur">EUR</option>
             </select>
-            <button onclick="return false;" id="an5b">5 ann</button>
-            <button onclick="return false;" id="pid5b">5 pidg</button>
-
+            <button onclick="return false;" id="pid5b">Вывести историю</button>
+            </div>
         </div>
     </div>
 <!--    -->
@@ -208,8 +194,9 @@
         var draft = document.getElementById("draft");
         draft.addEventListener('click', function() {
             if (draft.checked) {
-                reqJSON.open("GET", "file.json", true);
-                reqJSON.send(null)
+//                reqJSON.open("GET", "file.json", true);
+//                reqJSON.send(null)
+                getDraft();
             }
         });
 
@@ -489,7 +476,6 @@
 
             xml = '<histItem><data>'+ new Date() +'</data><curr>'+ selectTo.options[selectTo.selectedIndex].text +'</curr><val>'+ res +'</val></histItem>';
 
-            console.log(xml);
 //            writeToFile(resString);
             writeToFileXML(xml);
             history.appendChild(newElement);
@@ -505,13 +491,13 @@
                 p[item].style.color = "blue";
             }
         });
-        var thirdFirst = document.getElementById('thirdFirst');
-        thirdFirst.addEventListener("click", function() {
-            getSparta();
-            removeNonSparta();
-            removeNonSparta();
-            removeNonSparta();
-        });
+//        var thirdFirst = document.getElementById('thirdFirst');
+//        thirdFirst.addEventListener("click", function() {
+//            getSparta();
+//            removeNonSparta();
+//            removeNonSparta();
+//            removeNonSparta();
+//        });
         var thirdSecond = document.getElementById('thirdSecond');
         thirdSecond.addEventListener("click", function() {
 
@@ -522,11 +508,11 @@
         thirdSecond2.addEventListener("click", function() {
             findThree("history");
         });
-        var thirdThird = document.getElementById('thirdThird');
-        thirdThird.addEventListener("click", function() {
-            sort("history");
-            colorize("history");
-        });
+//        var thirdThird = document.getElementById('thirdThird');
+//        thirdThird.addEventListener("click", function() {
+//            sort("history");
+//            colorize("history");
+//        });
 
         function getSparta() {
             var history = document.getElementById("history")
@@ -583,7 +569,7 @@
             var length = childBlock.length;
             var ulBlock = document.getElementById("USD");
             for (var item in childBlock) {
-                if (childBlock[item].innerHTML.match('USD')) {
+                if (childBlock[item].innerHTML.match('usd')) {
                     var newLi = document.createElement("li");
                     newLi.innerHTML = childBlock[item].innerHTML;
 
@@ -599,7 +585,7 @@
             var mainBlock = document.getElementById(block);
             var childBlock = mainBlock.children;
             var length = childBlock.length;
-            var ulBlock = document.getElementById("USD");
+            var ulBlock = document.getElementById("usd");
             var count = 0;
             for (var i = 0; i < length; i++) {
                 for (var j = 1; j < length; j++) {
@@ -618,7 +604,7 @@
 
     </script>
     <script type="text/javascript" src="xml.js"></script>
-    <script type="text/javascript" src="csv.js"></script>
+<!--    <script type="text/javascript" src="csv.js"></script>-->
 </body>
 
 </html>
