@@ -1,42 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/index.php" line="325" />
+    <bookmark url="file://$PROJECT_DIR$/index.php" line="326" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f782b54-8eb2-436c-b3d2-4a7eca65b83a" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cad.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cad.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cny.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/csv.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/eur.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/eur.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gbp.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jsons/.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jsons/123.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jsons/cad.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jsons/cny.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jsons/eur.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jsons/gbp.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jsons/mxn.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jsons/new.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jsons/rub.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jsons/uah.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jsons/usd.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mxn.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/new.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rub.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/script.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uah.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/usd.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/usd.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vadim.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/writeCSV.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file.json" afterPath="$PROJECT_DIR$/file.json" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/new.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/new.xml" afterPath="$PROJECT_DIR$/new.xml" />
     </list>
     <ignored path="webdizain_N.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -62,9 +32,9 @@
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="114">
-              <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
+              <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
               <folding>
-                <marker date="1464293249731" expanded="true" signature="4015:4151" placeholder="..." />
+                <marker date="1464293418583" expanded="true" signature="4042:4178" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -261,18 +231,18 @@
       <workItem from="1463693610630" duration="1019000" />
       <workItem from="1464018950963" duration="24000" />
       <workItem from="1464163844534" duration="646000" />
-      <workItem from="1464284895759" duration="8119000" />
+      <workItem from="1464284895759" duration="8272000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55845000" />
+    <option name="totallyTimeSpent" value="55998000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13993949" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13993949" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -621,9 +591,9 @@
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
-          <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
+          <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
           <folding>
-            <marker date="1464293249731" expanded="true" signature="4015:4151" placeholder="..." />
+            <marker date="1464293418583" expanded="true" signature="4042:4178" placeholder="..." />
           </folding>
         </state>
       </provider>

@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
     <title>Converter</title>
     <link rel="stylesheet" type="text/css" href="normalize.css">
     <link rel="stylesheet" href="style.css">
