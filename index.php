@@ -107,17 +107,17 @@
             if ($k == 'img') {
                 $image = $key[$k];
             }
-            if ($k == 'name') {
-                $curr = $key[$k];
-            }
             if ($k == 'attitudetousd') {
                 $val = $key[$k];
             }
-            $f = fopen("$curr.json", 'w') or die('FUCK');
-            $s = '{"url":"'.$image.'", "buy":"'.$val.'", "sell":"'.$val*0.95.'"}';
-            fwrite($f, $s);
-            fclose($f);
+            if ($k == 'name') {
+                $curr = $value;
+            }
         }
+        $f = fopen("$curr.json", 'w') or die('FUCK');
+        $s = '{"url":"'.$image.'", "buy":"'.$val.'", "sell":"'.$val*0.95.'"}';
+        fwrite($f, $s);
+        fclose($f);
     }
     fclose($handle);
 
