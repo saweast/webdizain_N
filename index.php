@@ -71,7 +71,6 @@
                 <button id="thirdSecond2">Сменить цвет, если больше 3шт.</button>
             </div>
 
-<!--            <input type="text" placeholder="Валюта" id="an5i">-->
             <div>
             <select id="an5i">
                 <option value="cad">CAD</option>
@@ -82,7 +81,6 @@
             </div>
         </div>
     </div>
-<!--    -->
     <?php
     $filename = "file.json";
     $handle = fopen($filename, "r");
@@ -109,7 +107,6 @@
 
    
     ?>
-<!--    <script type="text/javascript" src="script.js">-->
     <script type="text/javascript">
         "use strict";
         // наш обьектик обьектиков валют
@@ -194,8 +191,6 @@
         var draft = document.getElementById("draft");
         draft.addEventListener('click', function() {
             if (draft.checked) {
-//                reqJSON.open("GET", "file.json", true);
-//                reqJSON.send(null)
                 getDraft();
             }
         });
@@ -270,7 +265,7 @@
                 to = 0,
                 res = 0;
             // меняю местами индексы в селектах
-            buffer = selectFrom.selectedIndex
+            buffer = selectFrom.selectedIndex;
             selectFrom.selectedIndex = selectTo.selectedIndex;
             selectTo.selectedIndex = buffer;
             // меняю местами картинки
@@ -413,11 +408,11 @@
                 var i = 5;
                 var int = setInterval(function() {
                     myWindow.document.write(i-- + " ");
-                }, 1000)
+                }, 1000);
                 setTimeout(function() {
                     myWindow.close();
                     clearInterval(int);
-                }, 6000)
+                }, 6000);
             }
         }
 
@@ -476,7 +471,6 @@
 
             xml = '<histItem><data>'+ new Date() +'</data><curr>'+ selectTo.options[selectTo.selectedIndex].text +'</curr><val>'+ res +'</val></histItem>';
 
-//            writeToFile(resString);
             writeToFileXML(xml);
             history.appendChild(newElement);
         });
@@ -491,13 +485,6 @@
                 p[item].style.color = "blue";
             }
         });
-//        var thirdFirst = document.getElementById('thirdFirst');
-//        thirdFirst.addEventListener("click", function() {
-//            getSparta();
-//            removeNonSparta();
-//            removeNonSparta();
-//            removeNonSparta();
-//        });
         var thirdSecond = document.getElementById('thirdSecond');
         thirdSecond.addEventListener("click", function() {
 
@@ -508,11 +495,6 @@
         thirdSecond2.addEventListener("click", function() {
             findThree("history");
         });
-//        var thirdThird = document.getElementById('thirdThird');
-//        thirdThird.addEventListener("click", function() {
-//            sort("history");
-//            colorize("history");
-//        });
 
         function getSparta() {
             var history = document.getElementById("history")
@@ -604,7 +586,6 @@
 
     </script>
     <script type="text/javascript" src="xml.js"></script>
-<!--    <script type="text/javascript" src="csv.js"></script>-->
 </body>
 
 </html>

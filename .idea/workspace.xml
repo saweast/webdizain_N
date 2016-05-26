@@ -1,15 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/index.php" line="330" />
+    <bookmark url="file://$PROJECT_DIR$/index.php" line="325" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f782b54-8eb2-436c-b3d2-4a7eca65b83a" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cad.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cad.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cny.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/csv.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/eur.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/eur.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gbp.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/jsons/.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/jsons/123.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/jsons/cad.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/jsons/cny.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/jsons/eur.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/jsons/gbp.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/jsons/mxn.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/jsons/new.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/jsons/rub.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/jsons/uah.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/jsons/usd.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/mxn.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/new.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/rub.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/script.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uah.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/usd.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/usd.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vadim.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/writeCSV.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file.json" afterPath="$PROJECT_DIR$/file.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/new.xml" afterPath="$PROJECT_DIR$/new.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style.css" afterPath="$PROJECT_DIR$/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xml.js" afterPath="$PROJECT_DIR$/xml.js" />
     </list>
     <ignored path="webdizain_N.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,34 +58,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="587" column="54" selection-start-line="587" selection-start-column="54" selection-end-line="587" selection-end-column="54" />
+            <state relative-caret-position="114">
+              <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
               <folding>
-                <marker date="1464292594311" expanded="true" signature="4156:4292" placeholder="..." />
+                <marker date="1464293249731" expanded="true" signature="4015:4151" placeholder="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="writeXML.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/writeXML.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" column="20" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="20" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -90,7 +97,6 @@
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/new.json" />
         <option value="$PROJECT_DIR$/.json" />
-        <option value="$PROJECT_DIR$/script.js" />
         <option value="$PROJECT_DIR$/jsons/writeXML.php" />
         <option value="$PROJECT_DIR$/jsons/pid.xml" />
         <option value="$PROJECT_DIR$/ann.csv" />
@@ -102,12 +108,13 @@
         <option value="$PROJECT_DIR$/eur.xml" />
         <option value="$PROJECT_DIR$/cad.xml" />
         <option value="$PROJECT_DIR$/usd.xml" />
-        <option value="$PROJECT_DIR$/file.json" />
         <option value="$PROJECT_DIR$/writeJSON.php" />
         <option value="$PROJECT_DIR$/new.xml" />
         <option value="$PROJECT_DIR$/xml.js" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/style.css" />
+        <option value="$PROJECT_DIR$/script.js" />
+        <option value="$PROJECT_DIR$/file.json" />
+        <option value="$PROJECT_DIR$/index.php" />
       </list>
     </option>
   </component>
@@ -254,12 +261,12 @@
       <workItem from="1463693610630" duration="1019000" />
       <workItem from="1464018950963" duration="24000" />
       <workItem from="1464163844534" duration="646000" />
-      <workItem from="1464284895759" duration="7782000" />
+      <workItem from="1464284895759" duration="8119000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55508000" />
+    <option name="totallyTimeSpent" value="55845000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
@@ -314,13 +321,6 @@
     </PATH>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/file.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/jsons/gbp.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
@@ -478,14 +478,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="378" column="9" selection-start-line="378" selection-start-column="4" selection-end-line="378" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/jsons/.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -570,14 +562,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/file.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="24" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/new.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
@@ -596,27 +580,51 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/xml.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
+        <state relative-caret-position="665">
           <caret line="35" column="46" selection-start-line="35" selection-start-column="46" selection-end-line="35" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="913">
+          <caret line="411" column="29" selection-start-line="411" selection-start-column="29" selection-end-line="411" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/normalize.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1235">
+          <caret line="65" column="14" selection-start-line="65" selection-start-column="14" selection-end-line="65" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/file.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="1040" selection-start-line="0" selection-start-column="1040" selection-end-line="0" selection-end-column="1040" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="587" column="54" selection-start-line="587" selection-start-column="54" selection-end-line="587" selection-end-column="54" />
+        <state relative-caret-position="114">
+          <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
           <folding>
-            <marker date="1464292594311" expanded="true" signature="4156:4292" placeholder="..." />
+            <marker date="1464293249731" expanded="true" signature="4015:4151" placeholder="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
