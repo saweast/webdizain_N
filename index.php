@@ -107,17 +107,17 @@
             if ($k == 'img') {
                 $image = $key[$k];
             }
-            if ($k == 'name') {
-                $curr = $key[$k];
-            }
             if ($k == 'attitudetousd') {
                 $val = $key[$k];
             }
-            $f = fopen("$curr.json", 'w') or die('FUCK');
-            $s = '{"url":"'.$image.'", "buy":"'.$val.'", "sell":"'.$val*0.95.'"}';
-            fwrite($f, $s);
-            fclose($f);
+            if ($k == 'name') {
+                $curr = $value;
+            }
         }
+        $f = fopen("$curr.json", 'w') or die('FUCK');
+        $s = '{"url":"'.$image.'", "buy":"'.$val.'", "sell":"'.$val*0.95.'"}';
+        fwrite($f, $s);
+        fclose($f);
     }
     fclose($handle);
 
@@ -339,7 +339,7 @@
             }
             currency[newName] = {
                 img: newSrc,
-                attitudeToUSD: newAttitide,
+                attitudetousd: newAttitide,
                 name: newName
             };
             makeFile(JSON.stringify(currency));
@@ -349,8 +349,8 @@
             var option1 = document.createElement('option');
             option.text = currency[newName].name;
             option1.text = currency[newName].name;
-            option.value = currency[newName].attitudeToUSD;
-            option1.value = currency[newName].attitudeToUSD;
+            option.value = currency[newName].attitudetousd;
+            option1.value = currency[newName].attitudetousd;
             selectFrom.add(option);
             selectTo.add(option1);
             // чищю инпуты
@@ -363,7 +363,8 @@
             for (var item in currency) {
                 var option = document.createElement("option");
                 option.text = currency[item].name;
-                option.value = currency[item].attitudeToUSD;
+                option.value = +currency[item].attitudetousd;
+
                 elem.add(option);
             }
         }
@@ -371,7 +372,7 @@
         function findAndChange(se, im) { // картинки делает
             var choosen = se.options[se.selectedIndex].value;
             for (var item in currency) {
-                if (choosen == currency[item].attitudeToUSD) {
+                if (choosen == currency[item].attitudetousd) {
                     im.src = currency[item].img;
                     im.alt = currency[item].name;
                     break;
