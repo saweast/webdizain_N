@@ -5,40 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f782b54-8eb2-436c-b3d2-4a7eca65b83a" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.json" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/cad.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cad.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/cny.json" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/eur.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/eur.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/gbp.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jsons/.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jsons/123.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jsons/cad.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jsons/cny.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jsons/eur.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jsons/gbp.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jsons/mxn.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jsons/new.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jsons/rub.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jsons/uah.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jsons/usd.json" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/mxn.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/new.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/new.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pid.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/rub.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/script.js" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/uah.json" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/usd.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/usd.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vadim.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/writeXML.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/xml.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file.json" afterPath="$PROJECT_DIR$/file.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/writeJSON.php" afterPath="$PROJECT_DIR$/writeJSON.php" />
     </list>
     <ignored path="webdizain_N.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -64,7 +39,7 @@
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="114">
-              <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
+              <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -262,12 +237,12 @@
       <workItem from="1464018950963" duration="24000" />
       <workItem from="1464163844534" duration="646000" />
       <workItem from="1464284895759" duration="5747000" />
-      <workItem from="1464293535425" duration="755000" />
+      <workItem from="1464293535425" duration="866000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54228000" />
+    <option name="totallyTimeSpent" value="54339000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
@@ -621,7 +596,7 @@
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
-          <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
+          <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
           <folding />
         </state>
       </provider>
