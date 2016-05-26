@@ -22,11 +22,11 @@ foreach ($azaza as $key) {
         if ($k == 'attitudetousd') {
             $val = $key[$k];
         }
-        $f = fopen("$curr.json", 'w') or die('cannot do this ');
-        $s = '{"url":"'.$image.'", "buy":"'.$val.'", "sell":"'.$val*0.95.'"}';
-        fwrite($f, $s);
-        fclose($f);
     }
+    $f = fopen("$curr.json", 'w') or die('cannot do this ');
+    $s = '{"url":"'.$image.'", "buy":"'.$val.'", "sell":"'.$val*0.95.'"}';
+    fwrite($f, $s);
+    fclose($f);
 }
 
 $newfile = fopen('new.json', 'w') or die('Unable to file!');

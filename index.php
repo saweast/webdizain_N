@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
     <title>Converter</title>
     <link rel="stylesheet" type="text/css" href="normalize.css">
     <link rel="stylesheet" href="style.css">
@@ -60,40 +61,26 @@
         </div>
         <div class="newindow">
             <div>
-                <h2>Общее задание 3 и 4 лабы</h2>
                 <button id="third">Записать в список</button>
                 <button id="thirdStyle">Отстилизировать список</button>
-            </div>
-            <div>
-                <h2>Подгорный индивидуальные задания</h2>
-                <h3>Задание к 2 лабораторной работе</h3>
-                <button id="pid" onclick="getDraft();">Чек</button>
-                <h3>Задание к 3 и 4 лабораторным работам</h3>
-                <button id="thirdSecond" title="Подгорный, скопировать трансакции с $, если больше 3 копий поменять размер текста">copy USD actions</button>
-                <button id="thirdSecond2">Если больше 3шт меняй цвет текста</button>
-            </div>
-            <div>
-                <h2>Анохина индивидуальные задания</h2>
-                <h3>Задание к 2 лабораторной работе</h3>
-                <button id="ann" onclick="getBrowserInfo();">Браузер</button>
-                <h3>Задание к 3 и 4 лабораторным работам</h3>
-                <button id="thirdFirst" title="Анохина, выделяем значения больше 300, все остальные удаляем">more than 300</button>
+                <button id="thirdThird">Отсортировать</button>
 
             </div>
             <div>
-                <h2>Лаворчук индивидуальные задания</h2>
+
+                <button id="ann" onclick="getBrowserInfo();">Информация о браузере</button>
                 <h3>Задание к 3 и 4 лабораторным работам</h3>
-                <button id="thirdThird" title="Лаворчук, отсортировать и закрасить данные">Sort</button>
+                <button id="thirdFirst">Выделить больше 300, удалить остальное</button>
+
             </div>
-<!--            <input type="text" placeholder="Валюта" id="an5i">-->
+
+            <div>
             <select id="an5i">
                 <option value="cad">CAD</option>
                 <option value="usd">USD</option>
                 <option value="eur">EUR</option>
             </select>
-            <button onclick="return false;" id="an5b">5 ann</button>
-            <button onclick="return false;" id="pid5b">5 pidg</button>
-
+            <button onclick="return false;" id="an5b">5 ann</button></div>
         </div>
     </div>
 <!--    -->
@@ -208,8 +195,7 @@
         var draft = document.getElementById("draft");
         draft.addEventListener('click', function() {
             if (draft.checked) {
-                reqJSON.open("GET", "file.json", true);
-                reqJSON.send(null)
+                getDraft();
             }
         });
 
@@ -445,20 +431,11 @@
             xmlhttp.open("GET", "writeCSV.php?q=" + str, true);
             xmlhttp.send();
         }
-        function writeToFileXML(str) {
-            var xmlhttp = new XMLHttpRequest();
-            xmlhttp.onreadystatechange = function() {
-                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-
-                }
-            };
-            xmlhttp.open("GET", "writeXML.php?q=" + str, true);
-            xmlhttp.send();
-        }
+        
 
         third.addEventListener("click", function(e) {
             var history = document.getElementById("history");
-            var resString, xml;
+            var resString;
             var res = 0;
             var numberV = document.getElementById('number').value;
             var from = selectFrom.options[selectFrom.selectedIndex].value;
@@ -472,39 +449,11 @@
 
             newElement.innerHTML = new Date() +" "+res + " " + selectTo.options[selectTo.selectedIndex].text;
             resString = new Date() + ";" + res + ";" + selectTo.options[selectTo.selectedIndex].text;
-
-            var xmlHistItem = document.createElement('histItem'),
-                xmlHistItemData = document.createElement('data'),
-                xmlHistItemDataText = document.createTextNode(new Date()),
-                xmlHistItemCurr = document.createElement('curr'),
-                xmlHistItemCurrText = document.createTextNode(selectTo.options[selectTo.selectedIndex].text),
-                xmlHistItemVal = document.createElement('val'),
-                xmlHistItemValText = document.createTextNode(res);
-            xmlHistItemData.appendChild(xmlHistItemDataText);
-            xmlHistItemCurr.appendChild(xmlHistItemCurrText);
-            xmlHistItemVal.appendChild(xmlHistItemValText);
-            xmlHistItem.appendChild(xmlHistItemData);
-            xmlHistItem.appendChild(xmlHistItemCurr);
-            xmlHistItem.appendChild(xmlHistItemVal);
-
-            xml = '<histItem><data>'+ new Date() +'</data><curr>'+ selectTo.options[selectTo.selectedIndex].text +'</curr><val>'+ res +'</val></histItem>';
-
-            console.log(xml);
-//            writeToFile(resString);
-            writeToFileXML(xml);
+            writeToFile(resString);
             history.appendChild(newElement);
         });
 
-        var thirdStyle = document.getElementById('thirdStyle');
 
-        thirdStyle.addEventListener('click', function() {
-            var history = document.getElementById("history");
-            var p = history.getElementsByTagName('p');
-            for (var item in p) {
-                p[item].style.background = "red";
-                p[item].style.color = "blue";
-            }
-        });
         var thirdFirst = document.getElementById('thirdFirst');
         thirdFirst.addEventListener("click", function() {
             getSparta();
@@ -512,16 +461,7 @@
             removeNonSparta();
             removeNonSparta();
         });
-        var thirdSecond = document.getElementById('thirdSecond');
-        thirdSecond.addEventListener("click", function() {
 
-            USDtoUL("history");
-
-        });
-        var thirdSecond2 = document.getElementById('thirdSecond2');
-        thirdSecond2.addEventListener("click", function() {
-            findThree("history");
-        });
         var thirdThird = document.getElementById('thirdThird');
         thirdThird.addEventListener("click", function() {
             sort("history");
@@ -617,7 +557,6 @@
         }
 
     </script>
-    <script type="text/javascript" src="xml.js"></script>
     <script type="text/javascript" src="csv.js"></script>
 </body>
 
