@@ -431,7 +431,15 @@
             xmlhttp.open("GET", "writeCSV.php?q=" + str, true);
             xmlhttp.send();
         }
-        
+        var thirdStyle = document.getElementById('thirdStyle');
+        thirdStyle.addEventListener('click', function() {
+            var history = document.getElementById("history");
+            var p = history.getElementsByTagName('p');
+            for (var item in p) {
+                p[item].style.background = "red";
+                p[item].style.color = "blue";
+            }
+        });
 
         third.addEventListener("click", function(e) {
             var history = document.getElementById("history");
@@ -447,7 +455,7 @@
             }
             var newElement = document.createElement('p');
 
-            newElement.innerHTML = new Date() +" "+res + " " + selectTo.options[selectTo.selectedIndex].text;
+            newElement.innerHTML = res + " " + selectTo.options[selectTo.selectedIndex].text;
             resString = new Date() + ";" + res + ";" + selectTo.options[selectTo.selectedIndex].text;
             writeToFile(resString);
             history.appendChild(newElement);
@@ -469,9 +477,10 @@
         });
 
         function getSparta() {
-            var history = document.getElementById("history")
+            var history = document.getElementById("history");
             var histElems = document.getElementById("history").children;
             for (var item in histElems) {
+                console.log(parseFloat(histElems[item].innerHTML));
                 if (parseFloat(histElems[item].innerHTML) >= 300) {
                     histElems[item].style.background = "yellow";
                 }
@@ -479,7 +488,7 @@
         }
 
         function removeNonSparta() {
-            var history = document.getElementById("history")
+            var history = document.getElementById("history");
             var histElems = document.getElementById("history").children;
             for (var item in histElems) {
                 if (parseFloat(histElems[item].innerHTML) < 300) {
